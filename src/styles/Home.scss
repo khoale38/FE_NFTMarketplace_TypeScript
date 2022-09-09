@@ -1,3 +1,10 @@
+@import "./breakpoints.scss";
+@import "./main.scss";
+@import "bootstrap/scss/bootstrap";
+@import "./breakpoints.scss";
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap");
+
+
 .App {
   text-align: center;
 }
@@ -35,5 +42,12 @@
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+
+.background{
+  @include mobile-down{
+    background-color: red;
   }
 }
