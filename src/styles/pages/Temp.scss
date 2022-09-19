@@ -1,0 +1,44 @@
+@import "../common.scss";
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+.textHome {
+  font-family: "Poppins";
+  font-weight: bold !important;
+  color: black;
+  font-size: 1.375rem;
+  text-align: center;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .navbar li {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .nav-item {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
+
+  .loginBtn {
+    padding-top: 0.813rem !important;
+    padding-bottom: 0.813rem !important;
+    padding-left: 2.188rem !important;
+    padding-right: 2.188rem !important;
+  }
+}
+.loginBtn {
+  width: 100% !important;
+}
+.searchBar{
+    width: 100%;
+}
