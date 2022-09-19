@@ -41,4 +41,18 @@
 }
 .searchBar{
     width: 100%;
+    display: flex!important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: started;
+}
+.searchInput{
+    border: none;
+    width: 100%
+    
+}
+.searchInput{
+    border: none;
+    width: 100%;
+    outline: 0;
 }

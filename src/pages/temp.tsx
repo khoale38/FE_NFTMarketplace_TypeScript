@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../asset/logo.svg";
 import "../styles/pages/Temp.scss";
+import searchIcon from "../asset/search.svg"
 const temp: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
@@ -22,7 +23,10 @@ const temp: React.FC = () => {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav centerNavItems   py-3 col-12">
-            <input className="form-control searchBar " placeholder="Search" />
+            <div className="form-control searchBar ">
+            <img src={searchIcon}/>
+            <input placeholder="Search"  className="searchInput"/>
+            </div>
             
               <li className="nav-item">Explore</li>
               <li className="nav-item">Stats</li>
