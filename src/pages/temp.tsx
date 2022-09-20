@@ -6,8 +6,8 @@ const temp: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <img src={logo} />
-        <button
+        <img src={logo}  className="logo"/>
+        <button 
           className="navbar-toggler collapsed"
           type="button"
           data-bs-toggle="collapse"
@@ -22,7 +22,7 @@ const temp: React.FC = () => {
           className="navbar-collapse collapse px-3 textHome "
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav centerNavItems   py-3 col-12">
+          <ul className="navbar-nav centerNavItems   py-2 col-12">
             <div className="form-control searchBar ">
             <img src={searchIcon}/>
             <input placeholder="Search"  className="searchInput"/>

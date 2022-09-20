@@ -1,5 +1,4 @@
 @import "../common.scss";
-@import url("https://fonts.googleapis.com/css?family=Poppins");
 
 .textHome {
   font-family: "Poppins";
@@ -30,29 +29,38 @@
   }
 
   .loginBtn {
-    padding-top: 0.813rem !important;
-    padding-bottom: 0.813rem !important;
+    padding-top: 0.4065rem !important;
+    padding-bottom: 0.4065rem !important;
     padding-left: 2.188rem !important;
     padding-right: 2.188rem !important;
+    font-size: 1rem !important;
   }
 }
 .loginBtn {
   width: 100% !important;
+  font-family: "Poppins" !important;
+  font-weight: 600 !important;
+  font-size: 1.375rem !important;
 }
-.searchBar{
-    width: 100%;
-    display: flex!important;
-    flex-direction: row;
-    align-items: center;
-    justify-content: started;
+.searchBar {
+  width: 100%;
+  display: flex !important;
+  flex-direction: row;
+  align-self: center;
+  justify-content: started;
+  max-height: 2.375rem;
 }
-.searchInput{
-    border: none;
-    width: 100%
-    
+.searchInput {
+  border: none;
+  width: 100%;
 }
-.searchInput{
-    border: none;
-    width: 100%;
-    outline: 0;
+.searchInput {
+  border: none;
+  width: 100%;
+  outline: 0;
+}
+
+.logo {
+  width: 8.125rem;
+  height: auto;
 }
