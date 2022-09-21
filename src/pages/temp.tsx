@@ -30,13 +30,10 @@ const temp: React.FC = () => {
             </div>
 
             <li className="nav-item">Explore</li>
+            <div className="dropdown-center">
             <li className="nav-item dropdown ">
-              <a
-                className="nav-link "
-       
-                aria-expanded="false"
-              >
-                Stat
+              <a className="nav-link " aria-expanded="false">
+                Stats
               </a>
               <ul className="dropdown-menu ">
                 <li className="customLi">
@@ -49,11 +46,12 @@ const temp: React.FC = () => {
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                   Activity
+                    Activity
                   </a>
                 </li>
               </ul>
             </li>
+            </div>
             <li className="nav-item">Resources</li>
             <li className="nav-item">Create</li>
             <li className="nav-item">

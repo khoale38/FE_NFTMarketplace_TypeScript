@@ -19,9 +19,6 @@
 }
 
 @media (min-width: 992px) {
-  .dropdown {
-    display: inline-block;
-  }
   .dropdown:hover .dropdown-menu {
     display: block;
     top: 100%;
@@ -102,5 +99,5 @@
 }
 .dropdown-menu {
   min-width: min-content !important;
-  width: 50px !important;
+
 }
