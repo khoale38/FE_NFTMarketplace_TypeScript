@@ -3,7 +3,7 @@
 .textHome {
   font-family: "Poppins";
   font-weight: bold !important;
-  color: black;
+  color: black !important;
   font-size: 1.375rem;
   text-align: center;
 }
@@ -19,6 +19,13 @@
 }
 
 @media (min-width: 992px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    top: 100%;
+    left: 0;
+    margin-top: var(--bs-dropdown-spacer);
+  }
+
   .navbar li {
     margin-left: 1em;
     margin-right: 1em;
@@ -67,4 +74,12 @@
 .logo {
   width: 8.125rem;
   height: auto;
+}
+
+.navbar {
+  position: relative;
+}
+
+.nav-link {
+  color: black !important;
 }
