@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../asset/logo.svg";
 import "../styles/pages/Temp.scss";
 import searchIcon from "../asset/search.svg";
-
+import right from "../asset/arrowRight.svg";
 const temp: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light  ">
@@ -30,28 +30,35 @@ const temp: React.FC = () => {
             </div>
 
             <li className="nav-item">Explore</li>
-            <div className="dropdown-center">
-            <li className="nav-item dropdown ">
-              <a className="nav-link " aria-expanded="false">
-                Stats
-              </a>
-              <ul className="dropdown-menu ">
-                <li className="customLi">
-                  <a className="dropdown-item" href="#">
-                    Ranking
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Activity
-                  </a>
-                </li>
-              </ul>
-            </li>
-            </div>
+            
+              <li className="nav-item dropdown ">
+                <a
+                  className="nav-link needhover"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  data-bs-auto-close="true"
+                  aria-expanded="false"
+                >
+                  Stats
+               
+                </a>
+                <ul className="dropdown-menu" >
+                  <li className="customLi">
+                    <a className="dropdown-item" href="#">
+                      Ranking
+                    </a>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Activity
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            
             <li className="nav-item">Resources</li>
             <li className="nav-item">Create</li>
             <li className="nav-item">
