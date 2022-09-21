@@ -30,17 +30,16 @@ const temp: React.FC = () => {
             </div>
 
             <li className="nav-item">Explore</li>
-            <li className="nav-item dropdown">
+            <li className="nav-item dropdown ">
               <a
                 className="nav-link "
-                role="button"
-                data-bs-toggle="dropdown"
+       
                 aria-expanded="false"
               >
                 Stat
               </a>
-              <ul className="dropdown-menu">
-                <li>
+              <ul className="dropdown-menu ">
+                <li className="customLi">
                   <a className="dropdown-item" href="#">
                     Ranking
                   </a>
