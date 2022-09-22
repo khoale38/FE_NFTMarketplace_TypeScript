@@ -3,20 +3,27 @@
 .avatar {
   width: 3rem;
   height: 3rem;
-
 }
 
-.avatardropdown{
-    margin-top: 0.625rem !important;
+.avatardropdown {
+  margin-top: 0.625rem !important;
 }
 
-.wallet{
-    margin-left: 2.375rem;
+.wallet {
+  margin-left: 2.375rem;
 }
 @media (max-width: 992px) {
-.with100{
-  min-width: 100% !important;
-}
-
-
+  .with100 {
+    min-width: 100% !important;
+    justify-content:space-between ;
+  }
+  .wallet {
+    margin-left: 5rem;
+    position:absolute;
+    align-self: flex-start;
+    align-items: flex-start;
+    width: 3rem;
+    height: 3rem;
+  }
+  .avatar{margin-right: 5rem;}
 }
