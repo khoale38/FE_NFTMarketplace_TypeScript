@@ -4,9 +4,9 @@ import ErrAvatar from "../asset/errAva.png";
 import "../styles/pages/Home/loggedUI.scss";
 const Logged: React.FC = () => {
   return (
-    <div className="d-flex flex-row ">
-      <div className="dropdown">
-        <div data-toggle="dropdown">
+    <div className="d-flex flex-row with100">
+      <div className="dropdown with100">
+        <div data-bs-toggle="dropdown">
           <img
             className="avatar"
             src={ErrAvatar}
@@ -14,7 +14,7 @@ const Logged: React.FC = () => {
               e.currentTarget.src = ErrAvatar;
             }}
           />
-          <span className="caret"></span>
+          
         </div>
         <ul className="dropdown-menu avatardropdown">
           <li className="customLi">
