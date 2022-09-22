@@ -1,58 +1,84 @@
-import React from 'react';
-import logo from '../logo.svg';
-import { Counter } from '../features/counter/Counter';
-import '../styles/pages/Home.scss';
+import React from "react";
+import logo from "../asset/logo.svg";
+import { useState } from "react";
+import "../styles/pages/Home/home.scss";
+import searchIcon from "../asset/search.svg";
 
-function App() {
+import LoggedUI from "../component/logged";
+
+const Temp: React.FC = () => {
+  const [logged, setlogged] = useState<boolean | null>(true);
+
   return (
-    <div className="App background">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
-}
+    <nav className="navbar navbar-expand-lg bg-light  ">
+      <div className="container-fluid">
+        <img src={logo} className="logo" />
+        <button
+          className="navbar-toggler collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div
+          className="navbar-collapse collapse px-3 textHome "
+          id="navbarSupportedContent"
+        >
+          <ul className="navbar-nav centerNavItems   py-2 col-12">
+            <div className="form-control searchBar ">
+              <img src={searchIcon} />
+              <input placeholder="Search" className="searchInput" />
+            </div>
 
-export default App;
+            <li className="nav-item">Explore</li>
+
+            <li className="nav-item dropdown ">
+              <a
+                className="nav-link needhover"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="true"
+                aria-expanded="false"
+              >
+                Stats
+              </a>
+              <ul className="dropdown-menu">
+                <li className="customLi">
+                  <a className="dropdown-item" href="#">
+                    Ranking
+                  </a>
+                </li>
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Activity
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li className="nav-item">Resources</li>
+            <li className="nav-item">Create</li>
+            <li className="nav-item">
+              {logged ? (
+                <LoggedUI />
+              ) : (
+                <button type="button" className="btn btn-dark loginBtn">
+                  Login
+                </button>
+              )}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Temp;

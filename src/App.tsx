@@ -1,6 +1,6 @@
 import React from "react";
+import Redux from "./pages/redux";
 import Home from "./pages/home";
-import Temp from "./pages/temp";
 import Test from "./pages/test";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,9 +9,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Redux />} />
 
-        <Route path="/temp" element={<Temp />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/test" element={<Test />} />
       </Routes>
     </BrowserRouter>
