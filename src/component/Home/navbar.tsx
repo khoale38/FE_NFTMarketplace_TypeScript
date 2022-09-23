@@ -1,14 +1,11 @@
 import React from "react";
-import logo from "../asset/logo.svg";
+import logo from "../../asset/logo.svg";
 import { useState } from "react";
-import "../styles/pages/Home/home.scss";
-import searchIcon from "../asset/search.svg";
-
-import LoggedUI from "../component/logged";
-
-const Temp: React.FC = () => {
-  const [logged, setlogged] = useState<boolean | null>(true);
-
+import "../../styles/pages/Home/home.scss";
+import searchIcon from "../../asset/search.svg";
+import LoggedUI from "../../component/Home/logged";
+const Navbar = () => {
+    const [logged, setlogged] = useState<boolean | null>(true);
   return (
     <nav className="navbar navbar-expand-lg bg-light  ">
       <div className="container-fluid">
@@ -81,4 +78,4 @@ const Temp: React.FC = () => {
   );
 };
 
-export default Temp;
+export default Navbar;

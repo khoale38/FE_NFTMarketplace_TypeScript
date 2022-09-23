@@ -1,8 +1,9 @@
 import React from "react";
-import wallet from "../asset/wallet.svg";
-import ErrAvatar from "../asset/errAva.png";
-import "../styles/pages/Home/loggedUI.scss";
+import wallet from "../../asset/wallet.svg";
+import ErrAvatar from "../../asset/errAva.png";
+import "../../styles/pages/Home/loggedUI.scss";
 const Logged: React.FC = () => {
+
   return (
     <div className="d-flex flex-row justify-content-center  with100">
     

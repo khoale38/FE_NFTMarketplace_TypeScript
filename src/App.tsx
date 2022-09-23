@@ -1,6 +1,6 @@
 import React from "react";
 import Redux from "./pages/redux";
-import Home from "./pages/home";
+import Home from "./pages/Home/home";
 import Test from "./pages/test";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
