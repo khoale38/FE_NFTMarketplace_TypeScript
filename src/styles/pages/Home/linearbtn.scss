@@ -1,0 +1,43 @@
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #ff75c3 0%,
+    #ffa647 21.35%,
+    #ffe83f 40.63%,
+    #9fff5b 59.38%,
+    #70e2ff 79.17%,
+    #cd93ff 100%
+  );
+
+  padding: 1rem 3.75rem;
+  text-align: center !important;
+  text-transform: uppercase;
+  transition: 0.5s;
+  width: 30.313rem !important;
+  height: 5.688rem !important;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 50px;
+  display: block;
+  justify-self: center;
+  font-family: "Poppins";
+  font-weight: 600;
+  color: white;
+  font-size: 2.5rem;
+  text-align: center!important;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .btn-grad {
+    width: 19.313rem !important;
+    height: 4rem !important;
+    font-size: 1.5rem;
+    text-align: center!important;
+  }
+}
