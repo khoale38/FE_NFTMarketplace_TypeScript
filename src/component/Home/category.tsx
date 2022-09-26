@@ -1,24 +1,27 @@
 import React from "react";
 import { useState } from "react";
-import "../../styles/pages/Home/category.scss"
+import "../../styles/pages/Home/category.scss";
 const Category = () => {
-  const links = ["1", "2", "3","4","5","6","1", "2", "3","4","5","6"];
+  const links = ["Trending", "Sport", "Art", "Music", "Photography"];
   const [active, setActive] = useState<String | null>("1");
   return (
-    <div className="d-flex flex-row text-nowrap overflow-auto">
-      
+    <div className="px-5">
+      <span className="header-text">
+        Explore Collection
+      </span>
+      <div className="d-flex flex-row text-nowrap overflow-auto ">
         {links.map((link) => (
-          <li className="nav-item r mx-5">
+          <li className="nav-item r ">
             <a
               href={`#${link}`}
-              className={`nav-link ${active == link && "colortext"}`}
+              className={`nav-link tab-bar ${active == link && "colortext"}`}
               onClick={() => setActive(link)}
             >
               {link}
             </a>
           </li>
         ))}
-    
+      </div>
     </div>
   );
 };
