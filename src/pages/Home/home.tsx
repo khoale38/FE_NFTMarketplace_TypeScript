@@ -8,6 +8,7 @@ const Home: React.FC = () => {
       <Navbar />
       <Herobar />
       <Category />
+      <div style={{height:"100px"}}></div>
     </div>
   );
 };

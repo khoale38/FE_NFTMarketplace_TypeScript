@@ -1,17 +1,39 @@
-.colortext {
-    color: red !important;
+.picked-colortext {
+  color: black !important;
+}
+.normal-colortext {
+  color: #d4d4d4 !important;
+}
+
+.border-color {
+  border-color: #d4d4d4 !important;
+  margin-top: 0.9rem;
 }
 
 .header-text {
-    font-family: "Poppins";
-    font-size: 3rem;
-    color: black;
-    font-weight: bold;
-    margin-bottom: 2.875rem  !important;
+  font-family: "Poppins";
+  font-size: 3rem;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 2.875rem !important;
 }
 
 .tab-bar {
-    font-family: "Poppins";
-    font-style: 600;
-    font-size: 2rem;
+  font-family: "Poppins" !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  margin-right: 4.5rem !important;
+}
+
+.zeroPadding {
+  padding: 0;
+}
+
+@media (max-width: 992px) {
+  .header-text {
+    font-size: 2.15rem!important;
+  }
+  .tab-bar {
+    font-size: 1.15rem!important;
+  }
 }
