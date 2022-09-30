@@ -1,0 +1,22 @@
+.collection-img {
+  object-fit: cover;
+  max-height: 11.25rem;
+}
+
+.square {
+  padding: 0;
+  width: 5.5rem !important;
+  height: 5.5rem !important;
+  background: red;
+  bottom: 25px;
+  position: absolute;
+}
+
+.collection-name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+
+  color: black;
+}
