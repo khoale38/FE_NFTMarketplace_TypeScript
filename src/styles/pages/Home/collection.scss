@@ -9,7 +9,8 @@
   height: 5.5rem !important;
   background: red;
   bottom: 25px;
-  position: absolute;
+  position: relative;
+  margin-right: 2rem;
 }
 
 .collection-name {
@@ -17,6 +18,12 @@
   font-style: normal;
   font-weight: 700;
   font-size: 2rem;
-
+  height: min-content;
   color: black;
 }
+
+
+.card-cbody{
+  height: 75px;
+}
+
