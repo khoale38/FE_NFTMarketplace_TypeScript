@@ -7,7 +7,7 @@ import LoggedUI from "../../component/Home/logged";
 const Navbar = () => {
     const [logged, setlogged] = useState<boolean | null>(true);
   return (
-    <nav className="navbar navbar-expand-lg bg-light  ">
+    <nav className="navbar shadow navbar-expand-lg bg-light  ">
       <div className="container-fluid">
         <img src={logo} className="logo" />
         <button
