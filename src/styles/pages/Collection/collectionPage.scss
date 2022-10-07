@@ -1,4 +1,41 @@
-.placeholder{
-    height: 18.75rem;
+.custom-placeholder{
+    height: 23rem;
     width: 100%;
+}
+
+.collection-wallpaper {
+    object-fit: cover;
+}
+
+.collection-square {
+    border-radius: 10px;
+    padding: 0;
+    width: 9.5rem !important;
+    height: 9.5rem !important;
+    background: white;
+    bottom: 115px;
+    position: relative;
+    margin-right: 2rem;
+}
+
+.collection-avatar {
+    padding: 0.45rem;
+}
+
+.collection-name{
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.author-name{
+    font-family: "Poppins";
+    font-weight:600;
+    font-size: 1rem;
+}
+
+.by{
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 1rem;
 }

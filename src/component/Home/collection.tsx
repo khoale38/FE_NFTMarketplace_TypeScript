@@ -10,7 +10,7 @@ const Collection: React.FC = () => {
         <div className="square shadow ">
           <img src={avatar} className="avatar-collection"  />
         </div>
-        <div className="card-title collection-name m-0 p-2">Card title</div>
+        <div className="card-title home-collection-name m-0 p-2">Card title</div>
       </div>
     </div>
   );
