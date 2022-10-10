@@ -2,6 +2,8 @@ import React from "react";
 import "../../styles/pages/Collection/collectionPage.scss";
 import wallpaper from "../../asset/wallpaper.png";
 import avatar2 from "../../asset/avatar2.png";
+import CollectionItemsCount from "./collectionItemsCount";
+
 const DisplayPersonal: React.FC = () => {
   return (
     <div>
@@ -21,7 +23,10 @@ const DisplayPersonal: React.FC = () => {
             <span className="by">
               By <b className="author-name">Author Name</b>
             </span>
-            <div>Description for NFT collection. Example this is one.</div>
+            <div className="collection-describe">Description for NFT collection. Example this is one.</div>
+          </div>
+          <div  className="py-3">
+            <CollectionItemsCount/>
           </div>
         </div>
       </div>
