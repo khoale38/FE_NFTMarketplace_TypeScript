@@ -3,6 +3,7 @@ import "../../styles/pages/Collection/collectionPage.scss";
 import wallpaper from "../../asset/wallpaper.png";
 import avatar2 from "../../asset/avatar2.png";
 import CollectionItemsCount from "./collectionItemsCount";
+import CollectionInfo from "./collectionInfo";
 
 const DisplayPersonal: React.FC = () => {
   return (
@@ -18,15 +19,9 @@ const DisplayPersonal: React.FC = () => {
           </div>
         </div>
         <div className="p-5">
-          <div>
-            <div className="collection-name">Collection Name</div>
-            <span className="by">
-              By <b className="author-name">Author Name</b>
-            </span>
-            <div className="collection-describe">Description for NFT collection. Example this is one.</div>
-          </div>
-          <div  className="py-3">
-            <CollectionItemsCount/>
+          <CollectionInfo />
+          <div className="py-3">
+            <CollectionItemsCount />
           </div>
         </div>
       </div>
