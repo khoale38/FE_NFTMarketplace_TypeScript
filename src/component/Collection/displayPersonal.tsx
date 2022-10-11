@@ -4,7 +4,7 @@ import wallpaper from "../../asset/wallpaper.png";
 import avatar2 from "../../asset/avatar2.png";
 import CollectionItemsCount from "./collectionItemsCount";
 import CollectionInfo from "./collectionInfo";
-
+import CollectionCategory from "../Collection/collectionCategory"
 const DisplayPersonal: React.FC = () => {
   return (
     <div>
@@ -18,11 +18,15 @@ const DisplayPersonal: React.FC = () => {
             <img src={avatar2} className="collection-avatar" />
           </div>
         </div>
-        <div className="p-5">
+        <div className="pt-5 px-5">
           <CollectionInfo />
           <div className="py-3">
             <CollectionItemsCount />
           </div>
+        </div>
+        <div>
+          <CollectionCategory/>
+          <div className="my-5"></div>
         </div>
       </div>
     </div>
