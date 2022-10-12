@@ -1,0 +1,24 @@
+.same-line-text {
+  white-space: nowrap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.updated-time {
+  color: #c9c9c9;
+}
+
+
+@media (max-width: 992px) {
+  .filterbar {
+    flex-direction: column-reverse!important;
+  }
+}
+
+
+
+.updated-time-items{
+    max-width: min-content;
+}
