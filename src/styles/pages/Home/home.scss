@@ -87,14 +87,17 @@
   display: flex !important;
   flex-direction: row;
   align-self: center;
-  justify-content: started;
+  justify-content: start;
   max-height: 2.375rem;
 }
 
 .searchInput {
+  align-content: center;
   border: none;
   width: 100%;
   outline: 0;
+  
+
 }
 
 .logo {

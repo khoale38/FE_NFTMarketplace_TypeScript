@@ -8,34 +8,34 @@ const filterBar: React.FC = () => {
    <div className="d-flex flex-fill">
    <div className="form-control searchBar ">
         <img src={searchIcon} />
-        <input placeholder="Search" className="searchInput" />
+        <input placeholder="Search" className="searchInput px-2" />
       </div>
       <div className="dropdown px-3">
         <button
-          className="btn btn-secondary dropdown-toggle"
+          className="btn  filter-button dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Dropdown button
+          Price low to high
         </button>
         <ul className="dropdown-menu px-4 my-1">
           <li>
             <a className="dropdown-item  text-left" href="#">
-              Action
+            Price low to high
             </a>
           </li>
           <li>
             <a className="dropdown-item text-left" href="#">
-              Another action
+              Price high to low 
             </a>
           </li>
         </ul>
       </div>
    </div>
-      <div className="d-flex align-items-center ">
+      <div className=" align-items-center remove-updated-time">
         <img src={Refesh}/>
-        <div className="same-line-text updated-time  mx-3">Updated 69m ago</div>
+        <div className="same-line-text updated-time  ms-2  me-3">Updated 69m ago</div>
         <div className="same-line-text  mx-3">4,444 items</div>
       </div>
 
