@@ -12,21 +12,22 @@ const filterBar: React.FC = () => {
       </div>
       <div className="dropdown px-3">
         <button
-          className="btn  filter-button dropdown-toggle"
+          className="btn  filter-button filter-text dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Price low to high
         </button>
-        <ul className="dropdown-menu px-4 my-1">
+        <ul className="dropdown-menu px-2 my-1">
           <li>
-            <a className="dropdown-item  text-left" href="#">
+            <a className="dropdown-item filter-text text-left" href="#">
             Price low to high
             </a>
           </li>
+          <li><hr className="dropdown-divider"/></li>
           <li>
-            <a className="dropdown-item text-left" href="#">
+            <a className="dropdown-item filter-text text-left" href="#">
               Price high to low 
             </a>
           </li>
