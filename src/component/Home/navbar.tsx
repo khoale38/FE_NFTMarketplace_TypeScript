@@ -33,7 +33,7 @@ const Navbar = () => {
 
             <li className="nav-item">Explore</li>
 
-            <li className="nav-item dropdown ">
+            <li className="nav-item dropdown  custom-dropdown">
               <a
                 className="nav-link needhover"
                 type="button"
@@ -43,9 +43,9 @@ const Navbar = () => {
               >
                 Stats
               </a>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu custom-dropdown-menu">
                 <li className="customLi">
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item custom-dropdown-item" href="#">
                     Ranking
                   </a>
                 </li>
@@ -53,7 +53,7 @@ const Navbar = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item custom-dropdown-item" href="#">
                     Activity
                   </a>
                 </li>

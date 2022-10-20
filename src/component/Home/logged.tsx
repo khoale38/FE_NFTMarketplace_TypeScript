@@ -7,7 +7,7 @@ const Logged: React.FC = () => {
   return (
     <div className="d-flex flex-row justify-content-center  with100">
     
-      <div className="dropdown with100">
+      <div className="dropdown custom-dropdown with100">
         <div data-bs-toggle="dropdown">
           <img
             className="avatar"
@@ -20,9 +20,9 @@ const Logged: React.FC = () => {
         </div>
        
       
-        <ul className="dropdown-menu avatardropdown width100">
+        <ul className="dropdown-menu custom-dropdown-menu avatardropdown width100">
           <li className="customLi">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item custom-dropdown-item" href="#">
               My Collection
             </a>
           </li>
@@ -30,7 +30,7 @@ const Logged: React.FC = () => {
             <hr className="dropdown-divider" />
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item custom-dropdown-item" href="#">
                Setting
             </a>
           </li>
@@ -38,7 +38,7 @@ const Logged: React.FC = () => {
             <hr className="dropdown-divider" />
           </li>
           <li>
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item custom-dropdown-item" href="#">
                Sign Out
             </a>
           </li>

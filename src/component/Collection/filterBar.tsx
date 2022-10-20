@@ -19,15 +19,15 @@ const filterBar: React.FC = () => {
         >
           Price low to high
         </button>
-        <ul className="dropdown-menu px-2 my-1">
+        <ul className="dropdown-menu custom-dropdown-menu px-2 my-1">
           <li>
-            <a className="dropdown-item filter-text text-left" href="#">
+            <a className="dropdown-item custom-dropdown-item filter-text text-left" href="#">
             Price low to high
             </a>
           </li>
           <li><hr className="dropdown-divider"/></li>
           <li>
-            <a className="dropdown-item filter-text text-left" href="#">
+            <a className="dropdown-item custom-dropdown-item filter-text text-left" href="#">
               Price high to low 
             </a>
           </li>
