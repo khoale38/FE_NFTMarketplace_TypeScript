@@ -1,7 +1,7 @@
 import React from "react";
-import star from "../../asset/star.svg";
-import share from "../../asset/share.svg";
-import more from "../../asset/more.svg";
+import star from "../../../asset/star.svg";
+import share from "../../../asset/share.svg";
+import more from "../../../asset/more.svg";
 const collectionInfo: React.FC = () => {
   return (
     <div className=" collection-info-grid ">

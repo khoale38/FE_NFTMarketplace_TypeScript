@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "../../styles/pages/Home/category.scss";
+import "../../../styles/pages/Home/category.scss";
 const CollectionCategory = () => {
   const links = ["Items", "Actitvity"];
   const [active, setActive] = useState<String | null>("Items");

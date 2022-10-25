@@ -1,5 +1,5 @@
 import React from "react";
-import eth from "../../asset/eth.svg";
+import eth from "../../../asset/eth.svg";
 const collectionItemsCount = () => {
   return (
     <div className="d-flex gap-5  ">

@@ -1,14 +1,16 @@
 import React from "react";
-import CollectionBody from "./collectionFilterAndNFTS";
-import CollectionCategory from "./collectionCategory";
-import FilterBar from "./filterBar";
+import CollectionFilterAndNFTS from "./Component/collectionFilterAndNFTS";
+import CollectionCategory from "./Component/collectionCategory";
+import FilterBar from "./Component/filterBar";
 const CollectionMarket: React.FC = () => {
   return (
+    // these child component can be found in Component  folder
     <div>
       <div>
+       
         <CollectionCategory />
         <FilterBar />
-        <CollectionBody />
+        <CollectionFilterAndNFTS />
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import CollectionDropdownComponent from "./collectionDropdownComponent";
 import "../../../styles/pages/Collection/collectionPage.scss"
 const collectionFilter = () => {
   return (
+    //All child component can be found in COllectionFilter  folder
     <div className="mx-0">
       <CollectionFilterStatus/>
       <CollectionPrice/>

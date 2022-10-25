@@ -1,7 +1,7 @@
 import React from "react";
-import searchIcon from "../../asset/search.svg";
-import "../../styles/pages/Collection/filterBar.scss";
-import Refesh from "../../asset/refresh.svg"
+import searchIcon from "../../../asset/search.svg";
+import "../../../styles/pages/Collection/filterBar.scss";
+import Refesh from "../../../asset/refresh.svg"
 const filterBar: React.FC = () => {
   return (
     <div className="d-flex  filterbar mx-5 my-3">

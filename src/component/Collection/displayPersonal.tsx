@@ -2,11 +2,12 @@ import React from "react";
 import "../../styles/pages/Collection/collectionPage.scss";
 import wallpaper from "../../asset/wallpaper.png";
 import avatar2 from "../../asset/avatar2.png";
-import CollectionItemsCount from "./collectionItemsCount";
-import CollectionInfo from "./collectionInfo";
-import CollectionCategory from "./collectionCategory";
+import CollectionItemsCount from "./CollectionInfo/collectionItemsCount";
+import CollectionInfo from "./CollectionInfo/collectionInfo";
+import CollectionCategory from "./Component/collectionCategory";
 const DisplayPersonal: React.FC = () => {
   return (
+    //these child component can be found in collectionInfo folder
     <div>
       <div className="flex flew-col">
         <div className="custom-placeholder">
