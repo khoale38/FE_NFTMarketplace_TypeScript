@@ -7,8 +7,8 @@ const CollectionMarket: React.FC = () => {
     <div>
       <div>
         <CollectionCategory />
-        <FilterBar/>
-     <CollectionBody/>
+        <FilterBar />
+        <CollectionBody />
       </div>
     </div>
   );
