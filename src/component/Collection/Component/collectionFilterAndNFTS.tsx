@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss";
 import CollectionFilter from "../CollectionFilter/CollectionFilter";
+import NFT from "../NFT/NFT";
 const CollectionFilterAndNFTS = () => {
   //getting window size
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -14,14 +15,24 @@ const CollectionFilterAndNFTS = () => {
     return () => window.removeEventListener("resize", updateWidthAndHeight);
   });
 
+  const NFTs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
   return (
     <div className="container-fluid">
       <div className="row px-5">
         <div className="col-lg-3 px-0 green">
           {/*this component can be found in CollectionFilter folder */}
-          {width > 992 ?  <CollectionFilter/> :<SmallFilter/>}
+          {width > 992 ? <CollectionFilter /> : <SmallFilter />}
         </div>
-        <div className="col-lg-9 red">NFT</div>
+        <div className="col-lg-9 red">
+          <div className="row">
+            {NFTs.map((item) => (
+              <div className="col-lg-3 col-md-6 py-3 ">
+                <NFT />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -46,7 +57,5 @@ export const SmallFilter = () => {
     </div>
   );
 };
-
-
 
 export default CollectionFilterAndNFTS;
