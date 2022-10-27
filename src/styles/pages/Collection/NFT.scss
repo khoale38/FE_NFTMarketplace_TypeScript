@@ -9,20 +9,23 @@
 
 .NFT-cbody {
   max-height: 115px;
-
 }
-
+.avatar-NFT {
+  width: 6rem !important;
+  height: 6rem !important;
+}
 .NFT-square {
   border-radius: 10px;
-
-  width: 5.5rem !important;
-  height: 5.5rem !important;
+  width: 6rem !important;
+  height: 6rem !important;
   background: white;
   position: relative;
 }
 
 .NFT-card {
-  border-radius: 25px !important;
+  border-radius: 15px !important;  
+  min-width: 207px !important;
+
 }
 
 .NFT-name {
@@ -34,16 +37,57 @@
   color: black;
 }
 
-
 @media (min-width: 992px) {
   .NFT-name {
-
     font-size: 1.5vw;
+  }
+  .starting-at-text {
+    font-size: 1vw;
+  }
+  .nft-item-price {
+    font-size: 1.5vw;
+  }
+  .avatar-NFT {
+    max-width: 6rem !important;
+    max-height: 6rem !important;
+  }
+  .NFT-square {
+
+    max-width: 6rem !important;
+    max-height: 6rem !important;
 
   }
+  
 }
 
-.nft-eth-icon{
+.nft-eth-icon {
   padding: 0;
-  
+  width: 18px;
+  height: 32px;
+}
+
+.starting-at-text {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 24px;
+  color: #d4d4d4;
+}
+
+.nft-item-price {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  background: linear-gradient(
+    90deg,
+    #f9e0b3 0%,
+    #f5b5b8 28.12%,
+    #ae9ae0 60.94%,
+    #a4f6d7 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
