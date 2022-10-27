@@ -7,7 +7,7 @@ const NFT = () => {
   return (
     <div className="card shadow NFT-card">
       <img src={popcat} className=" NFT-img" alt="..." />
-      <div className=" NFT-cbody px-3 py-2 my-2 d-flex flex-row align-items-center">
+      <div className=" NFT-cbody px-3 pb-2  d-flex flex-row align-items-center">
         <div className="NFT-square shadow ">
           <img src={avatar} className="avatar-collection" />
         </div>
