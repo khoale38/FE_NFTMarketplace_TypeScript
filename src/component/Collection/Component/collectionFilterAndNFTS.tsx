@@ -20,7 +20,7 @@ const CollectionFilterAndNFTS = () => {
   return (
     <div className="container-fluid">
       <div className="row px-5">
-        <div className="col-lg-2 px-0 green">
+        <div className="col-lg-2 px-0 ">
           {/*this component can be found in CollectionFilter folder */}
           {width > 992 ? <CollectionFilter /> : <SmallFilter />}
         </div>

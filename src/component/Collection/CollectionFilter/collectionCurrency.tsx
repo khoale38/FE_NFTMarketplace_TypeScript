@@ -4,7 +4,7 @@ const collectionCurrency = () => {
   return (
     <div className="filter-heading">
       Currency
-      <div className="form-check">
+      <div className="form-check ms-1">
         <input
           className="form-check-input"
           type="checkbox"
@@ -16,7 +16,7 @@ const collectionCurrency = () => {
           ETH
         </label>
       </div>
-      <div className="form-check">
+      <div className="form-check ms-1" >
         <input
           className="form-check-input"
           type="checkbox"
@@ -24,7 +24,7 @@ const collectionCurrency = () => {
           id="flexCheckChecked"
           
         />
-        <label className="form-check-label filter-item  " htmlFor="flexCheckChecked">
+        <label className="form-check-label filter-item ms-1 " htmlFor="flexCheckChecked">
           WETH
         </label>
       </div>

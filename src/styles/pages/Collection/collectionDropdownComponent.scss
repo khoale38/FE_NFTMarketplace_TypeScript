@@ -1,5 +1,28 @@
-.collectionDropdown-menu{
-    position: relative  !important;
-    display: block;
+.metadata-dropdown-menu {
+  position: relative !important;
+  display: block;
+  border-color: transparent !important;
+  padding: 0!important;
+  
+  margin: 0!important;
+  margin-left: 1rem!important;
 }
 
+.metadata-dropdown {
+  background-color: transparent !important;
+  font-family: "Poppins" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  color: black !important;
+  padding: 0 !important;
+  border-color: transparent !important;
+}
+
+.metadata-dropdown-item {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25rem;
+
+}

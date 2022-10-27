@@ -1,18 +1,18 @@
 import React from "react";
-import "../../../styles/pages/Collection/collectionDropdownComponent.scss"
+import "../../../styles/pages/Collection/collectionDropdownComponent.scss";
 interface collectionDropdownComponentProps {
   metadata: string[];
   name: string;
 }
 
-const collectionDropdownComponent: React.FC<
-  collectionDropdownComponentProps
-> = (props: collectionDropdownComponentProps) => {
+const collectionDropdownComponent: React.FC<collectionDropdownComponentProps> = (
+  props: collectionDropdownComponentProps
+) => {
   return (
-    <div>
+    <div className="py-2">
       <div className="dropdown">
         <button
-          className="btn btn-secondary dropdown-toggle"
+          className="btn container-fluid  text-start dropdown-toggle metadata-dropdown-toggle metadata-dropdown"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -21,13 +21,24 @@ const collectionDropdownComponent: React.FC<
         >
           {props.name}
         </button>
-        <ul className="dropdown-menu collectionDropdown-menu">
+        <ul className="dropdown-menu metadata-dropdown-menu metadata-dropdown-menu">
           {props.metadata.map((e) => {
             return (
               <li>
-                <a className="dropdown-item" href="#">
-                  {e}
-                </a>
+                <div className="form-check metadata-dropdown-item">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexCheckDefault"
+                  >
+                    {e}
+                  </label>
+                </div>
               </li>
             );
           })}

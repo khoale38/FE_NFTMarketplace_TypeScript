@@ -1,8 +1,51 @@
-.price-text{
-    font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 1rem;
-
+.price-text {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  
 }
 
+
+.apply-price-button {
+  background-image: linear-gradient(
+    to right,
+    #f9e0b3 0%,
+    #f5b5b8 14.2%,
+    #ae9ae0 28.5%,
+    #a4f6d7 42.8%,
+    #ae9ae0 71.4%,
+    #f5b5b8 85.7%,
+    #f9e0b3 100%
+  );
+
+  transition: 1s!important;
+  background-size: 200% auto!important;
+
+  border-radius: 10px !important;
+  border-color: transparent !important;
+}
+.apply-price-button:hover {
+  background-position: right center !important; /* change the direction of the change here */
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.price-input{
+    max-width: 4rem;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.price-input::placeholder{
+
+    text-align: center;
+
+}
+.currency-dropdown{
+    background-color: transparent!important;
+    color: black !important;
+    border-color: #CED4DA !important;
+    align-items: center;
+    margin-right: 5px;
+}

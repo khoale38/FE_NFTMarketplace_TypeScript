@@ -5,7 +5,7 @@ const collectionFilterStatus = () => {
     <div>
       <div className="filter-heading">
         Status
-        <div className="form-check ">
+        <div className="form-check ms-1">
           <input
             className="form-check-input "
             type="checkbox"
@@ -16,7 +16,7 @@ const collectionFilterStatus = () => {
             Buy Now
           </label>
         </div>
-        <div className="form-check ">
+        <div className="form-check ms-1">
           <input
             className="form-check-input "
             type="checkbox"

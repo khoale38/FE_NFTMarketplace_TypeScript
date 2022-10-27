@@ -6,3 +6,8 @@
 @import './mixins';
 @import './main';
 @import "bootstrap/scss/bootstrap";
+
+
+*:focus {
+    outline: none!important;
+}

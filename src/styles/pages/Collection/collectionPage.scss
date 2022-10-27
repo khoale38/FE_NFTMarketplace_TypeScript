@@ -94,5 +94,14 @@
 }
 
 .collection-divider{
-    border-top: 3px solid #F2F3F5;
+    border-top: 3px solid #D4D4D4;
+}
+
+.metadata-dropdown-toggle::after {
+    content: url('../../../asset/dropdown.svg') !important;
+    border: none !important;
+float: right;
+    height: auto!important;
+ vertical-align: middle!important;
+
 }

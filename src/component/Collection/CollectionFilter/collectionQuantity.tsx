@@ -4,7 +4,7 @@ const collectionQuantity = () => {
   return (
     <div className="filter-heading">
       Quantity
-      <div className="form-check">
+      <div className="form-check ms-1">
         <input
           className="form-check-input"
           type="radio"
@@ -16,7 +16,7 @@ const collectionQuantity = () => {
           All Items
         </label>
       </div>
-      <div className="form-check">
+      <div className="form-check ms-1">
         <input
           className="form-check-input"
           type="radio"
@@ -27,7 +27,7 @@ const collectionQuantity = () => {
       Single Items
         </label>
       </div>
-      <div className="form-check">
+      <div className="form-check ms-1">
         <input
           className="form-check-input"
           type="radio"
