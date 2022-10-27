@@ -5,8 +5,8 @@ import avatar from "../../asset/avatar.png"
 const Collection: React.FC = () => {
   return (
     <div className="card shadow">
-      <img src={popcat} className="card-img-top collection-img" alt="..." />
-      <div className="card-body card-cbody px-3 py-0 my-2 d-flex flex-row align-items-center">
+      <img src={popcat} className=" collection-img" alt="..." />
+      <div className=" card-cbody px-3 py-0 my-2 d-flex flex-row align-items-center">
         <div className="square shadow ">
           <img src={avatar} className="avatar-collection"  />
         </div>

@@ -31,3 +31,11 @@
 
 .avatar-collection{ width: 5.5rem !important;
   height: 5.5rem !important;}
+
+  @media (min-width: 992px) {
+    .home-collection-name {
+  
+      font-size: 1.5vw;
+  
+    }
+  }

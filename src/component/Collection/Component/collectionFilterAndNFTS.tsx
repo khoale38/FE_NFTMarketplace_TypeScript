@@ -20,11 +20,11 @@ const CollectionFilterAndNFTS = () => {
   return (
     <div className="container-fluid">
       <div className="row px-5">
-        <div className="col-lg-3 px-0 green">
+        <div className="col-lg-2 px-0 green">
           {/*this component can be found in CollectionFilter folder */}
           {width > 992 ? <CollectionFilter /> : <SmallFilter />}
         </div>
-        <div className="col-lg-9 red">
+        <div className="col-lg-10 red">
           <div className="row">
             {NFTs.map((item) => (
               <div className="col-lg-3 col-md-6 py-3 ">

@@ -1,0 +1,48 @@
+.NFT-img {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  padding: 0.8rem;
+  object-fit: cover;
+  max-height: 19.313rem;
+}
+
+.NFT-cbody {
+  max-height: 115px;
+
+}
+
+.NFT-square {
+  border-radius: 10px;
+
+  width: 5.5rem !important;
+  height: 5.5rem !important;
+  background: white;
+  position: relative;
+}
+
+.NFT-card {
+  border-radius: 25px !important;
+}
+
+.NFT-name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.1rem;
+  height: min-content;
+  color: black;
+}
+
+
+@media (min-width: 992px) {
+  .NFT-name {
+
+    font-size: 1.5vw;
+
+  }
+}
+
+.nft-eth-icon{
+  padding: 0;
+  
+}
