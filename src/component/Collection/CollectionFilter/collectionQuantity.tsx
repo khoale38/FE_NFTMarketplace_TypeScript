@@ -1,8 +1,8 @@
 import React from "react";
-
+import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss"
 const collectionQuantity = () => {
   return (
-    <div>
+    <div className="filter-heading">
       Quantity
       <div className="form-check">
         <input
@@ -12,7 +12,7 @@ const collectionQuantity = () => {
           id="flexRadioDefault1"
           checked
         />
-        <label className="form-check-label" htmlFor="flexRadioDefault1">
+        <label className="form-check-label filter-item" htmlFor="flexRadioDefault1">
           All Items
         </label>
       </div>
@@ -23,7 +23,7 @@ const collectionQuantity = () => {
           name="flexRadioDefault"
           id="flexRadioDefault2"
         />
-        <label className="form-check-label" htmlFor="flexRadioDefault2">
+        <label className="form-check-label filter-item" htmlFor="flexRadioDefault2">
       Single Items
         </label>
       </div>
@@ -34,7 +34,7 @@ const collectionQuantity = () => {
           name="flexRadioDefault"
           id="flexRadioDefault2"
         />
-        <label className="form-check-label" htmlFor="flexRadioDefault2">
+        <label className="form-check-label filter-item" htmlFor="flexRadioDefault2">
           Bundles
         </label>
       </div>

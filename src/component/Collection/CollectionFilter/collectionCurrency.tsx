@@ -1,8 +1,8 @@
 import React from "react";
-
+import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss"
 const collectionCurrency = () => {
   return (
-    <div>
+    <div className="filter-heading">
       Currency
       <div className="form-check">
         <input
@@ -10,9 +10,9 @@ const collectionCurrency = () => {
           type="checkbox"
           value=""
           id="flexCheckDefault"
-          checked
+    
         />
-        <label className="form-check-label" htmlFor="flexCheckDefault">
+        <label className="form-check-label filter-item" htmlFor="flexCheckDefault">
           ETH
         </label>
       </div>
@@ -24,7 +24,7 @@ const collectionCurrency = () => {
           id="flexCheckChecked"
           
         />
-        <label className="form-check-label" htmlFor="flexCheckChecked">
+        <label className="form-check-label filter-item  " htmlFor="flexCheckChecked">
           WETH
         </label>
       </div>

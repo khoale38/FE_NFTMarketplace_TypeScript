@@ -24,7 +24,7 @@ const CollectionFilterAndNFTS = () => {
           {/*this component can be found in CollectionFilter folder */}
           {width > 992 ? <CollectionFilter /> : <SmallFilter />}
         </div>
-        <div className="col-lg-10 red">
+        <div className="col-lg-10 ">
           <div className="row">
             {NFTs.map((item) => (
               <div className="col-lg-3 col-md-6 py-3 ">
