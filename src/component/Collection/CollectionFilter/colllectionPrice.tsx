@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../styles/pages/Collection/collectionPrice.scss";
-import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss"
+import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss";
+const currency = ["ETH", "USD", "VND"];
 const colllectionPrice = () => {
   return (
     <div className="filter-heading">
@@ -16,16 +17,15 @@ const colllectionPrice = () => {
             USD
           </button>
           <ul className="dropdown-menu price-dropdown">
-            <li>
-              <a className="dropdown-item" href="#">
-                USD
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                ETH
-              </a>
-            </li>
+            {currency.map((e) => {
+              return (
+                <li>
+                  <a className="dropdown-item" href="#">
+                   {e}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="input-group price-input ">
@@ -48,7 +48,10 @@ const colllectionPrice = () => {
           />
         </div>
       </div>
-      <button type="button" className="btn btn-primary container-fluid apply-price-button">
+      <button
+        type="button"
+        className="btn btn-primary container-fluid apply-price-button"
+      >
         Apply
       </button>
     </div>

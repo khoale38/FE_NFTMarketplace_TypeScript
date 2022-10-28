@@ -1,33 +1,17 @@
 import React from "react";
-import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss"
+import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss";
+import CollectionCurrencyComponent from "./component/collectionCurrencyComponent";
+
+const Currency = ["ETH", "WETH", "BTC"];
+
 const collectionCurrency = () => {
   return (
     <div className="filter-heading">
       Currency
-      <div className="form-check ms-1">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-    
-        />
-        <label className="form-check-label filter-item" htmlFor="flexCheckDefault">
-          ETH
-        </label>
-      </div>
-      <div className="form-check ms-1" >
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckChecked"
-          
-        />
-        <label className="form-check-label filter-item ms-1 " htmlFor="flexCheckChecked">
-          WETH
-        </label>
-      </div>
+      {Currency.map((e) => {
+        return( <CollectionCurrencyComponent name={e}/>);
+
+      })}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import CollectionFilterStatus from "./collectionFilterStatus";
 import CollectionPrice from "./colllectionPrice";
 import CollectionQuantity from "./collectionQuantity";
 import CollectionCurrency from "./collectionCurrency";
-import CollectionDropdownComponent from "./collectionDropdownComponent";
+import CollectionDropdownComponent from "./component/collectionDropdownComponent";
 import "../../../styles/pages/Collection/collectionPage.scss"
 const collectionFilter = () => {
   return (

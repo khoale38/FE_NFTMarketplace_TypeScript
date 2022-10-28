@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/pages/Collection/collectionDropdownComponent.scss";
+import "../../../../styles/pages/Collection/collectionDropdownComponent.scss";
 interface collectionDropdownComponentProps {
   metadata: string[];
   name: string;
