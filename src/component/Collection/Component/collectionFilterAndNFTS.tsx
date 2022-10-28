@@ -42,16 +42,16 @@ export const SmallFilter = () => {
   return (
     <div className="dropdown filter-button">
       <button
-        className="btn btn-secondary dropdown-toggle container-fluid"
+        className="btn small-screen-filter dropdown-toggle container-fluid"
         type="button"
         data-bs-toggle="dropdown"
         data-bs-display="static"
         aria-expanded="false"
         data-bs-auto-close="false"
       >
-        Apply Filter
+      Filter
       </button>
-      <div className="dropdown-menu position-relative filter-container">
+      <div className="dropdown-menu mt-2 position-relative filter-container px-3">
         <CollectionFilter />
       </div>
     </div>
