@@ -2,6 +2,7 @@ import React from "react";
 import Redux from "./pages/redux";
 import Home from "./pages/Home/homePage";
 import CollectionPage from "./pages/Collection/collectionPage";
+import MintPage from "pages/Mint/mintPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -13,6 +14,7 @@ function App() {
 
         <Route path="/home" element={<Home />} />
         <Route path="/collection" element={<CollectionPage />} />
+        <Route path="/mint" element={<MintPage />} />
       </Routes>
     </BrowserRouter>
   );
