@@ -15,36 +15,40 @@
     background-color: rgba(206, 212, 218, 0.3);
 }
 
-
 .mint-image {
-  
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.image-container{
-  position: relative;
-  height: 304px;
-  width: 430px;
-} 
+.image-container {
+    position: relative;
+    height: 304px;
+    width: 430px;
+}
 
 .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: rgba(206, 212, 218, 0.7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(206, 212, 218, 0.7);
 }
 
 .image-container:hover .overlay {
-  opacity: 1;
-  background-image: url("../../../asset/media.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+    opacity: 1;
+    background-image: url("../../../asset/media.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image-close-icon {
+    width: 25px;
+    height: 25px;
+
 }
