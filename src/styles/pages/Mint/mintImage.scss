@@ -1,20 +1,50 @@
 .image-placeholder {
-  height: 304px;
-  width: 430px;
-
-  border-color: #ced4da;
-  border-width: 4px;
-  border-style: dashed;
-  border-radius: 4px;
-  object-fit: contain;
+    background-image: url("../../../asset/media.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 304px;
+    width: 430px;
+    border-color: #ced4da;
+    border-width: 4px;
+    border-style: dashed;
+    border-radius: 4px;
+    object-fit: contain;
 }
+
+.image-placeholder:hover {
+    background-color: rgba(206, 212, 218, 0.3);
+}
+
 
 .mint-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.mint-icon {
-  margin: auto;
+.image-container{
+  position: relative;
+  height: 304px;
+  width: 430px;
+} 
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(206, 212, 218, 0.7);
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+  background-image: url("../../../asset/media.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }

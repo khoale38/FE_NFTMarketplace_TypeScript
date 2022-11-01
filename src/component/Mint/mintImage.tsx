@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../../styles/pages/Mint/mintImage.scss";
-import media from "../../asset/media.svg"
+import media from "../../asset/media.svg";
 const MintImage = () => {
   const [selectedFile, setSelectedFile] = useState<any | null>();
   const [preview, setPreview] = useState<string>();
@@ -45,8 +45,12 @@ const MintImage = () => {
         style={{ display: "none" }}
       />
       <div className="image-placeholder d-flex" onClick={onButtonClick}>
-        
-        {selectedFile ? <img className="mint-image" src={preview} />:<img src={media} className="mint-icon"/>}
+        {selectedFile && (
+          <div className="image-container" >
+            <img className="mint-image" src={preview} />
+            <div className="overlay"></div>
+          </div>
+        )}
       </div>
     </div>
   );
