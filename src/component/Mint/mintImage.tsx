@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../../styles/pages/Mint/mintImage.scss";
 import media from "../../asset/media.svg";
-import close from "../../asset/close2.svg"
+import close from "../../asset/close2.svg";
 const MintImage = () => {
   const [selectedFile, setSelectedFile] = useState<any | null>();
   const [preview, setPreview] = useState<string>();
@@ -47,10 +47,17 @@ const MintImage = () => {
       />
       <div className="image-placeholder d-flex" onClick={onButtonClick}>
         {selectedFile && (
-          <div className="image-container" >
+          <div className="image-container">
             <img className="mint-image" src={preview} />
             <div className="overlay ">
-              <img src={close} className="image-close-icon position-absolute top-0 end-0" onClick={()=>setPreview(undefined)}/>
+              <img
+                src={close}
+                className="image-close-icon position-absolute top-0 end-0"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedFile(null);
+                }}
+              />
             </div>
           </div>
         )}
