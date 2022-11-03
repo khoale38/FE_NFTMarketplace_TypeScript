@@ -2,11 +2,17 @@ import React from "react";
 import MintHeader from "./mintHeader";
 import MintImage from "./mintImage";
 import MintComponent from "./mintComponent";
+import MintDropdownComponent, { chain } from "./mintDropdownComponent";
+import avatar from "../../asset/avatar.png";
+import avatar2 from "../../asset/avatar2.png";
 const description =
   "The description will be included on the item's detail page underneath its image. Markdown syntax is supported.";
 const externalLink =
   "OpenSea will include a link to this URL on this item's detail page, so that users can click to learn more about it. You are welcome to link to your own webpage with more details.";
 const supply = "The number of items that can be minted. No gas cost to you!";
+
+const chain1 = { name: "Chain 1", image: avatar };
+const chain2 = { name: "Chain 2", image: avatar2 };
 const mintbody = () => {
   return (
     <div>
@@ -48,6 +54,7 @@ const mintbody = () => {
         textfield={false}
         tooltip={"How many NFT do you want to mint"}
       />
+      <MintDropdownComponent blockchain={[chain1,chain2]} />
     </div>
   );
 };
