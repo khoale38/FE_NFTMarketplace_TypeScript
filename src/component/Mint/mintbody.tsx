@@ -6,6 +6,9 @@ import MintDropdownComponent, { chain } from "./mintDropdownComponent";
 import avatar from "../../asset/avatar.png";
 import avatar2 from "../../asset/avatar2.png";
 import MintCollectionDropdownComponent from "./mintCollectionDropdownComponent";
+import MintFreezeNFTComponent from "./mintFreezeNFTComponent";
+import MintMetadataComponent from "./mintMetadataComponent"
+import "../../styles/pages/Mint/mintComponent.scss"
 const description =
   "The description will be included on the item's detail page underneath its image. Markdown syntax is supported.";
 const externalLink =
@@ -56,7 +59,12 @@ const mintbody = () => {
         tooltip={"How many NFT do you want to mint"}
       />
       <MintDropdownComponent blockchain={[chain1, chain2]} />
-      <MintCollectionDropdownComponent list={[chain1, chain2]}/>
+      <MintCollectionDropdownComponent list={[chain1, chain2]} />
+      <MintFreezeNFTComponent />
+      <button type="button" className=" mint-create-button">
+        Primary
+      </button>
+      <MintMetadataComponent/>
     </div>
   );
 };
