@@ -46,20 +46,55 @@
     #f5b5b8 85.7%,
     #f9e0b3 100%
   );
-  transition: 1s!important;
-  background-size: 200% auto!important;
+  transition: 1s !important;
+  background-size: 200% auto !important;
   width: 500px;
   border-radius: 5px !important;
   border-color: transparent !important;
-  color: #fff!important;
-  font-family: 'Poppins'!important;
-  font-style: normal!important;
-  font-weight: 700!important;
-  font-size: 24px!important;
+  color: #fff !important;
+  font-family: "Poppins" !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
 }
 
 .mint-create-button:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+
+.mint-text-style {
+  font-family: "Poppins";
+  font-style: normal;
+}
+
+.mint-heading1 {
+  font-weight: 600;
+  font-size: 3.5rem;
+}
+
+.mint-black-text {
+  color: #000;
+}
+.mint-red-text {
+  color: #ff0000;
+}
+
+.mint-grey-text {
+  color: #ced4da;
+}
+
+.mint-heading2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.mint-explaination {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.mint-properties-icon{
+  width: 45px;
+  height: 45px;
 }

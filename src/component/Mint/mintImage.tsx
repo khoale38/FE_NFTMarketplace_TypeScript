@@ -34,8 +34,10 @@ const MintImage = () => {
   };
   return (
     <div>
-      <div>Image, Video, Audio, or 3D Model *</div>
-      <div>
+      <div className="mint-text-style mint-black-text mint-heading2 ">
+        Image, Video, Audio, or 3D Model<b className="mint-red-text">*</b>
+      </div>
+      <div className="mint-text-style mint-explanation mint-grey-text">
         File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB,
         GLTF. Max size: 100 MB
       </div>

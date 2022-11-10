@@ -19,8 +19,8 @@ const chain1 = { name: "Chain 1", image: avatar };
 const chain2 = { name: "Chain 2", image: avatar2 };
 const mintbody = () => {
   return (
-    <div>
-      <MintHeader />
+    <div className="d-flex flex-column justify-content-center">
+      <MintHeader  />
       <MintImage />
       <MintComponent
         name={"Name"}
@@ -55,16 +55,17 @@ const mintbody = () => {
         placeholder={"Amount of item"}
         description={supply}
         icon={true}
-        textfield={false}
+        textfield={true}
         tooltip={"How many NFT do you want to mint"}
       />
       <MintDropdownComponent blockchain={[chain1, chain2]} />
       <MintCollectionDropdownComponent list={[chain1, chain2]} />
       <MintFreezeNFTComponent />
+  
+      <MintMetadataComponent/>
       <button type="button" className=" mint-create-button">
         Primary
       </button>
-      <MintMetadataComponent/>
     </div>
   );
 };

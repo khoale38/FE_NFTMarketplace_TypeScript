@@ -14,11 +14,11 @@ interface mintComponent {
 const mintComponent = (props: mintComponent) => {
   return (
     <div>
-      <div>
+      <div className="d-flex mint-text-style mint-heading2">
         {props.name}
-        {props.requireField ? <div>*</div> : null}
+        {props.requireField ? <b className="mint-red-text">*</b> : null}
       </div>
-      <div>
+      <div className="mint-text-style mint-explanation mint-grey-text">
         {props.description}
         {props.icon ? (
           <i className="bi bi-info-circle-fill mint-info-icon custom-tooltip">

@@ -17,7 +17,7 @@ const MintDropdownComponent = (props: blockchain) => {
   const [chain, setChain] = useState<chain>(props.blockchain[0]);
   return (
     <div>
-      <div>Blockchain</div>
+      <div className="mint-text-style mint-heading2">Blockchain</div>
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"

@@ -5,16 +5,16 @@ interface collection {
   image: string;
   name: string;
 }
-interface collectionList{
-    list:collection[]
+interface collectionList {
+  list: collection[];
 }
 
 const MintCollectionDropdownComponent = (props: collectionList) => {
   const [collection, setCollection] = useState<collection>(props.list[0]);
   return (
     <div>
-      Collection
-      <div>
+      <div className=" mint-text-style mint-heading2">Collection</div>
+      <div className="mint-text-style mint-explanation mint-grey-text">
         This is the collection where your item will appear.
         <i className="bi bi-info-circle-fill mint-info-icon custom-tooltip">
           <span className="tooltiptext">This is tool tip for collection.</span>
