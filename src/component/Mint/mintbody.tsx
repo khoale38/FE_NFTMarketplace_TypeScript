@@ -7,8 +7,8 @@ import avatar from "../../asset/avatar.png";
 import avatar2 from "../../asset/avatar2.png";
 import MintCollectionDropdownComponent from "./mintCollectionDropdownComponent";
 import MintFreezeNFTComponent from "./mintFreezeNFTComponent";
-import MintMetadataComponent from "./mintMetadataComponent"
-import "../../styles/pages/Mint/mintComponent.scss"
+import MintMetadataComponent from "./mintMetadataComponent";
+import "../../styles/pages/Mint/mintComponent.scss";
 const description =
   "The description will be included on the item's detail page underneath its image. Markdown syntax is supported.";
 const externalLink =
@@ -19,53 +19,55 @@ const chain1 = { name: "Chain 1", image: avatar };
 const chain2 = { name: "Chain 2", image: avatar2 };
 const mintbody = () => {
   return (
-    <div className="d-flex flex-column justify-content-center">
-      <MintHeader  />
-      <MintImage />
-      <MintComponent
-        name={"Name"}
-        requireField={true}
-        placeholder={"Item name"}
-        description={null}
-        icon={false}
-        textfield={true}
-        tooltip={null}
-      />
-      <MintComponent
-        name={"External link"}
-        requireField={false}
-        placeholder={"Discord, Website, Twitter, ..."}
-        description={externalLink}
-        icon={false}
-        textfield={true}
-        tooltip={null}
-      />
-      <MintComponent
-        name={"Description"}
-        requireField={false}
-        placeholder={"Provide a detailed description for your item "}
-        description={description}
-        icon={false}
-        textfield={false}
-        tooltip={null}
-      />
-      <MintComponent
-        name={"Supply"}
-        requireField={false}
-        placeholder={"Amount of item"}
-        description={supply}
-        icon={true}
-        textfield={true}
-        tooltip={"How many NFT do you want to mint"}
-      />
-      <MintDropdownComponent blockchain={[chain1, chain2]} />
-      <MintCollectionDropdownComponent list={[chain1, chain2]} />
-      <MintFreezeNFTComponent />
-  
-      <MintMetadataComponent/>
-      <button type="button" className=" mint-create-button">
-        Primary
-      </button>
+    <div className="d-flex flex-column  ">
+      <div className="mint-min-width align-self-center">
+   
+        <MintHeader />
+        <MintImage />
+        <MintComponent
+          name={"Name"}
+          requireField={true}
+          placeholder={"Item name"}
+          description={null}
+          icon={false}
+          textfield={true}
+          tooltip={null}
+        />
+        <MintComponent
+          name={"External link"}
+          requireField={false}
+          placeholder={"Discord, Website, Twitter, ..."}
+          description={externalLink}
+          icon={false}
+          textfield={true}
+          tooltip={null}
+        />
+        <MintComponent
+          name={"Description"}
+          requireField={false}
+          placeholder={"Provide a detailed description for your item "}
+          description={description}
+          icon={false}
+          textfield={false}
+          tooltip={null}
+        />
+        <MintComponent
+          name={"Supply"}
+          requireField={false}
+          placeholder={"Amount of item"}
+          description={supply}
+          icon={true}
+          textfield={true}
+          tooltip={"How many NFT do you want to mint"}
+        />
+        <MintDropdownComponent blockchain={[chain1, chain2]} />
+        <MintCollectionDropdownComponent list={[chain1, chain2]} />
+        <MintFreezeNFTComponent />
+        <MintMetadataComponent />
+        <button type="button" className=" mint-create-button mx-auto">
+          Primary
+        </button>
+      </div>
     </div>
   );
 };

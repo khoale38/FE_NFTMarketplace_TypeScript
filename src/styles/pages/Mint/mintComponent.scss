@@ -2,38 +2,7 @@
   color: #ced4da;
 }
 
-.custom-tooltip {
-  position: relative;
-  display: inline-block;
-}
 
-.custom-tooltip .tooltiptext {
-  visibility: hidden;
-  width: 320px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  top: -5px;
-  left: 150%;
-}
-
-.custom-tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent black transparent transparent;
-}
-.custom-tooltip:hover .tooltiptext {
-  visibility: visible;
-}
 
 .mint-create-button {
   background-image: linear-gradient(
@@ -48,7 +17,7 @@
   );
   transition: 1s !important;
   background-size: 200% auto !important;
-  width: 500px;
+  width: 470px;
   border-radius: 5px !important;
   border-color: transparent !important;
   color: #fff !important;
@@ -97,4 +66,14 @@
 .mint-properties-icon{
   width: 45px;
   height: 45px;
+}
+
+.mint-min-width{
+  width:490px;
+
+}
+
+.mint-max-width{
+  max-width: 100% !important;
+
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/pages/Mint/mintComponent.scss";
 import { CustomOption } from "./mintDropdownComponent";
+import ReactTooltip from 'react-tooltip';
 interface collection {
   image: string;
   name: string;
@@ -16,9 +17,9 @@ const MintCollectionDropdownComponent = (props: collectionList) => {
       <div className=" mint-text-style mint-heading2">Collection</div>
       <div className="mint-text-style mint-explanation mint-grey-text">
         This is the collection where your item will appear.
-        <i className="bi bi-info-circle-fill mint-info-icon custom-tooltip">
-          <span className="tooltiptext">This is tool tip for collection.</span>
+        <i className="bi bi-info-circle-fill mint-info-icon" data-tip="This is tool tip for collection.">
         </i>
+        <ReactTooltip />
         <div className="dropdown">
           <button
             className="btn btn-secondary dropdown-toggle"

@@ -1,6 +1,7 @@
 import React from "react";
 import Info from "../../asset/info1.svg";
 import "../../styles/pages/Mint/mintComponent.scss";
+import ReactTooltip from 'react-tooltip';
 
 interface mintComponent {
   name: string;
@@ -14,16 +15,16 @@ interface mintComponent {
 const mintComponent = (props: mintComponent) => {
   return (
     <div>
-      <div className="d-flex mint-text-style mint-heading2">
+      <div className="d-flex mint-text-style mint-heading2 ">
         {props.name}
         {props.requireField ? <b className="mint-red-text">*</b> : null}
       </div>
-      <div className="mint-text-style mint-explanation mint-grey-text">
+      <div className="mint-text-style mint-explanation mint-grey-text ">
         {props.description}
         {props.icon ? (
-          <i className="bi bi-info-circle-fill mint-info-icon custom-tooltip">
-            <span className="tooltiptext">{props.tooltip}</span>
+         <div> <i className="bi bi-info-circle-fill mint-info-icon" data-tip={props.tooltip}>
           </i>
+          <ReactTooltip /></div>
         ) : null}
       </div>
       {!props.textfield ? (
@@ -34,7 +35,7 @@ const mintComponent = (props: mintComponent) => {
         </form>
       ) : (
         <form>
-          <input type="text" placeholder={props.placeholder} />
+          <input type="text" className="mint-max-width" placeholder={props.placeholder} />
         </form>
       )}
     </div>
