@@ -19,7 +19,7 @@ const mintComponent = (props: mintComponent) => {
         {props.name}
         {props.requireField ? <b className="mint-red-text">*</b> : null}
       </div>
-      <div className=" d-flex mint-text-style mint-explanation mint-grey-text ">
+      <div className=" d-flex justify-content-between mint-text-style mint-explanation mint-grey-text ">
         {props.description}
         {props.icon ? (
          <div> <i className="bi bi-info-circle-fill mint-info-icon" data-tip={props.tooltip}>
