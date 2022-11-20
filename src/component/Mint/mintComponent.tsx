@@ -14,8 +14,8 @@ interface mintComponent {
 }
 const mintComponent = (props: mintComponent) => {
   return (
-    <div>
-      <div className="d-flex mint-text-style mint-heading2 ">
+    <div className=" my-2">
+      <div className="d-flex mint-text-style mint-heading2">
         {props.name}
         {props.requireField ? <b className="mint-red-text">*</b> : null}
       </div>
@@ -29,13 +29,13 @@ const mintComponent = (props: mintComponent) => {
       </div>
       {!props.textfield ? (
         <form>
-          <textarea placeholder={props.placeholder} maxLength={1000} className="mint-max-width">
+          <textarea placeholder={props.placeholder} maxLength={1000} className="mint-max-width mint-text-field mt-2">
             This is the default comment...
           </textarea>
         </form>
       ) : (
         <form>
-          <input type="text" className="mint-max-width" placeholder={props.placeholder} />
+          <input type="text" className="mint-max-width mint-text-field mt-2" placeholder={props.placeholder} />
         </form>
       )}
     </div>

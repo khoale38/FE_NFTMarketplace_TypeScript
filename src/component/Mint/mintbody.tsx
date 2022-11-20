@@ -20,7 +20,7 @@ const chain2 = { name: "Chain 2", image: avatar2 };
 const mintbody = () => {
   return (
     <div className="d-flex flex-column  ">
-      <div className="mint-min-width align-self-center">
+      <div className="mint-min-width align-self-center  jusity-items-between">
    
         <MintHeader />
         <MintImage />
@@ -64,7 +64,7 @@ const mintbody = () => {
         <MintCollectionDropdownComponent list={[chain1, chain2]} />
         <MintFreezeNFTComponent />
         <MintMetadataComponent />
-        <button type="button" className=" mint-create-button mx-auto">
+        <button type="button" className=" mint-create-button container-fluid my-4">
           Primary
         </button>
       </div>

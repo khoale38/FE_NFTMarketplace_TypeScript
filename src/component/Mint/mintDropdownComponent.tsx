@@ -16,16 +16,16 @@ interface blockchain {
 const MintDropdownComponent = (props: blockchain) => {
   const [chain, setChain] = useState<chain>(props.blockchain[0]);
   return (
-    <div>
+    <div className='my-3'>
       <div className="mint-text-style mint-heading2">Blockchain</div>
       <div className="dropdown ">
         <button
-          className="btn btn-secondary dropdown-toggle container-fluid d-flex flex-row align-items-center justify-content-between"
+          className="btn  mint_dropdown_style dropdown-toggle container-fluid d-flex flex-row align-items-center justify-content-between py-1"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <div className="d-inline">
+          <div className="d-inline mint-text-style mint-dropdown-text">
          
             <img src={chain.image} className="mint-dropdown-icon me-5" />
             {chain.name}
@@ -50,7 +50,7 @@ export const CustomOption = (props: customOption) => {
   return (
     <div className="d-flex align-items-center">
       <img src={props.image} className="mint-dropdown-icon me-3" />
-      <text>{props.name}</text>
+      <text className="mint-text-style mint-dropdown-text">{props.name}</text>
     </div>
   );
 };
