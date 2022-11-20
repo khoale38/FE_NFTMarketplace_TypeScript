@@ -69,11 +69,23 @@
 }
 
 .mint-min-width{
-  width:490px;
+  width:500px;
 
 }
 
+@media (max-width: 992px) {
+  .mint-min-width{
+    width:480px;
+  
+  }
+}
+
+
 .mint-max-width{
-  max-width: 100% !important;
+  width: 100vw; 
+  max-width: fill-available;
+  max-width: stretch;
+  max-width: -webkit-fill-available;
+  max-width: -moz-available;
 
 }
