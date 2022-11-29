@@ -21,11 +21,11 @@ const MintMetadataComponent = () => {
     bgcolor: "background.paper",
     borderRadius: 6,
     maxWidth: "500px",
-    maxHeight: "500px",
+
     p: 4,
   };
 
-  const [textFieldAmount, setTextFieldAmount] = useState(1);
+  const [textFieldAmount, setTextFieldAmount] :any = useState(1);
 
   return (
     <div className="d-flex  justify-content-between my-1">
@@ -50,28 +50,29 @@ const MintMetadataComponent = () => {
       >
         <Box sx={style}>
           <div className="d-flex flex-column align-items-center">
-            <div className="d-flex align-items-center justify-items-center">
-              Add Properties <img className="metadata-icon " src={close} />
+            <div className="d-flex align-items-center justify-items-center mint-text-style mint-heading2 mint-black-text">
+              Add Properties 
             </div>
-            <div>
+            <img className="metadata-icon position-absolute top-0 end-0 me-3 mt-3" src={close} onClick={handleClose} />
+            <div className="mint-text-style  ">
               Properties show up underneath your item, are clickable, and can be
               filtered in your collection's sidebar.
             </div>
-            <div className="add-metadata-model overflow-auto">
-              {Array.from(Array(textFieldAmount)).map(() => {
-                return <AddMetaDataTextfieldComponent />;
+            <div className="add-metadata-modal overflow-auto mt-3">
+              {Array.from(Array(textFieldAmount)).map((e,index) => {
+                return <AddMetaDataTextfieldComponent/>;
               })}
             </div>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-primary  align-self-start add-metadata-add-more-btn my-3"
               onClick={() => setTextFieldAmount(textFieldAmount + 1)}
             >
-              Primary
+              Add More
             </button>
             <button
               type="button"
-              className="btn btn-primary container-fluid"
+              className="btn btn-primary container-fluid add-metadata-save-btn py-2"
             
             >
               Save

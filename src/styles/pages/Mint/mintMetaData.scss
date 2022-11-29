@@ -1,8 +1,47 @@
 .metadata-icon {
-    width: 35px;
-    height: 35px;
+  width: 35px;
+  height: 35px;
 }
 
-.add-metadata-model {
-    max-height: 250px;
+.add-metadata-modal {
+  max-height: 255px;
+}
+
+.add-metadata-add-more-btn {
+border-width: 1.7px!important;
+  font-weight: 700 !important;
+  font-size: 1.125rem !important;
+  border-color: #d9d9d9 !important;
+  background: linear-gradient(
+    to right,
+    #f9e0b3 0%,
+    #f5b5b8 28.12%,
+    #ae9ae0 60.94%,
+    #a4f6d7 100%
+  ) !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+.add-metadata-save-btn{
+    font-family: "Poppins" !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    background-image: linear-gradient(
+    to right,
+    #f9e0b3 0%,
+    #f5b5b8 14.2%,
+    #ae9ae0 28.5%,
+    #a4f6d7 42.8%,
+    #ae9ae0 71.4%,
+    #f5b5b8 85.7%,
+    #f9e0b3 100%
+  );
+  transition: 1s !important;
+  background-size: 200% auto !important;
+
+  border-radius: 5px !important;
+  border-color: transparent !important;
+  color: #fff !important;
 }

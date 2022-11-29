@@ -1,6 +1,6 @@
 import React from "react";
 
-const addMetaDataTextfieldComponent = () => {
+const addMetaDataTextfieldComponent = (props:any) => {
   return (
     <div>
       <div className="input-group mb-3">
@@ -8,6 +8,7 @@ const addMetaDataTextfieldComponent = () => {
           className="btn btn-outline-secondary"
           type="button"
           id="button-addon1"
+       
         >
           X
         </button>
