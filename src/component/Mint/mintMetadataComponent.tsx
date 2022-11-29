@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import multiline from "../../asset/multiline.png";
 import add from "../../asset/add.svg";
 import Modal from "@mui/material/Modal";
@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import close from "../../asset/close1.svg";
 import "../../styles/pages/Mint/mintMetaData.scss";
+import AddMetaDataTextfieldComponent from "./addMetaDataTextfieldComponent";
+
 const MintMetadataComponent = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -18,14 +20,17 @@ const MintMetadataComponent = () => {
     width: "max-content",
     bgcolor: "background.paper",
     borderRadius: 6,
-    maxWidth:"500px",
+    maxWidth: "500px",
+    maxHeight: "500px",
     p: 4,
   };
+
+  const [textFieldAmount, setTextFieldAmount] = useState(1);
+
   return (
     <div className="d-flex  justify-content-between my-1">
       <div>
         <div className="mint-text-style mint-heading2">
- 
           <img src={multiline} className="mint-properties-icon" /> Properties
         </div>
 
@@ -45,14 +50,32 @@ const MintMetadataComponent = () => {
       >
         <Box sx={style}>
           <div className="d-flex flex-column align-items-center">
-            
             <div className="d-flex align-items-center justify-items-center">
               Add Properties <img className="metadata-icon " src={close} />
             </div>
             <div>
-            Properties show up underneath your item, are clickable, and can be filtered in your collection's sidebar.
+              Properties show up underneath your item, are clickable, and can be
+              filtered in your collection's sidebar.
             </div>
-
+            <div className="add-metadata-model overflow-auto">
+              {Array.from(Array(textFieldAmount)).map(() => {
+                return <AddMetaDataTextfieldComponent />;
+              })}
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setTextFieldAmount(textFieldAmount + 1)}
+            >
+              Primary
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary container-fluid"
+            
+            >
+              Save
+            </button>
           </div>
         </Box>
       </Modal>
