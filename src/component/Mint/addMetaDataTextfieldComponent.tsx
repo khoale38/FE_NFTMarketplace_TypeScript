@@ -10,7 +10,7 @@ const AddMetaDataTextfieldComponent = () => {
 
   return (
     <div>
-      {visible && (
+      {visible ? (
         <div className="input-group mb-3">
           <button
             className="btn btn-outline-secondary"
@@ -34,7 +34,7 @@ const AddMetaDataTextfieldComponent = () => {
             className="form-control"
           />
         </div>
-      )}
+      ):null}
     </div>
   );
 };
