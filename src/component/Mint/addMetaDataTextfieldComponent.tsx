@@ -1,32 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-const addMetaDataTextfieldComponent = (props:any) => {
+const AddMetaDataTextfieldComponent = () => {
+  const [visible, setVisible] = useState(true);
+  //Remove textfield rat la ta dao
+  const removeElement = () => {
+    setVisible((prev) => !prev);
+  };
+
   return (
     <div>
-      <div className="input-group mb-3">
-        <button
-          className="btn btn-outline-secondary"
-          type="button"
-          id="button-addon1"
-       
-        >
-          X
-        </button>
-        <input
-          type="text"
-          aria-label="Type"
-          placeholder="Type"
-          className="form-control"
-        />
-        <input
-          type="text"
-          aria-label="Name"
-          placeholder="Name"
-          className="form-control"
-        />
-      </div>
+      {visible && (
+        <div className="input-group mb-3">
+          <button
+            className="btn btn-outline-secondary"
+            type="button"
+            id="button-addon1"
+            onClick={removeElement}
+          >
+            X
+          </button>
+
+          <input
+            type="text"
+            aria-label="Type"
+            placeholder="Type"
+            className="form-control"
+          />
+          <input
+            type="text"
+            aria-label="Name"
+            placeholder="Name"
+            className="form-control"
+          />
+        </div>
+      )}
     </div>
   );
 };
 
-export default addMetaDataTextfieldComponent;
+export default AddMetaDataTextfieldComponent;

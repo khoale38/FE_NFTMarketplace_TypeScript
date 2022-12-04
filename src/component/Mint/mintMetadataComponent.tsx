@@ -8,6 +8,12 @@ import close from "../../asset/close1.svg";
 import "../../styles/pages/Mint/mintMetaData.scss";
 import AddMetaDataTextfieldComponent from "./addMetaDataTextfieldComponent";
 
+
+interface metadata{
+  type:string,
+  name:string,
+}
+
 const MintMetadataComponent = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -60,7 +66,7 @@ const MintMetadataComponent = () => {
             </div>
             <div className="add-metadata-modal overflow-auto mt-3">
               {Array.from(Array(textFieldAmount)).map((e,index) => {
-                return <AddMetaDataTextfieldComponent/>;
+                return <AddMetaDataTextfieldComponent />;
               })}
             </div>
             <button
