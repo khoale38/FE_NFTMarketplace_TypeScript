@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss";
 import CollectionFilter from "../CollectionFilter/CollectionFilter";
-import NFT from "../NFT/NFT";
+import CollectionNFT from "../NFT/collectionNFT";
 const CollectionFilterAndNFTS = () => {
   //getting window size
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -28,7 +28,7 @@ const CollectionFilterAndNFTS = () => {
           <div className="row">
             {NFTs.map((item) => (
               <div className="col-lg-3 col-md-6 py-3 ">
-                <NFT />
+                <CollectionNFT />
               </div>
             ))}
           </div>

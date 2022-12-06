@@ -3,7 +3,8 @@ import popcat from "../../../asset/popcat.jpg";
 import "../../../styles/pages/Collection/NFT.scss";
 import avatar from "../../../asset/avatar.png";
 import ETH from "../../../asset/eth.svg";
-const NFT = () => {
+import more from "../../../asset/more.svg";
+const collectionNFT = () => {
   return (
     <div className="card shadow NFT-card">
       <img src={popcat} className=" NFT-img" alt="..." />
@@ -18,6 +19,7 @@ const NFT = () => {
             <div className="d-flex align-items-center">
               <div className="nft-item-price pe-2">13.8</div>
               <img src={ETH} className="nft-eth-icon" alt="..." />
+              <img src ={more}/>
             </div>
           </div>
         </div>
@@ -26,4 +28,4 @@ const NFT = () => {
   );
 };
 
-export default NFT;
+export default collectionNFT;
