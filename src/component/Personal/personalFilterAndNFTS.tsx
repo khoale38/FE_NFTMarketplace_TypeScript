@@ -1,7 +1,6 @@
-import CollectionFilter from 'component/Collection/CollectionFilter/CollectionFilter';
-
 import React from 'react'
 import "../../styles/pages/Collection/collectionFilterAndNFTS.scss";
+import PersonalFilter from './personalFilter';
 import PersonalNFT from './personalNFT';
 
 const PersonalFilterAndNFTS = () => {
@@ -24,7 +23,7 @@ const PersonalFilterAndNFTS = () => {
     <div className="row px-5">
       <div className="col-lg-2 px-0 ">
         {/*this component can be found in CollectionFilter folder */}
-        {width > 992 ? <CollectionFilter /> : <SmallFilter />}
+        {width > 992 ? <PersonalFilter /> : <SmallFilter />}
       </div>
       <div className="col-lg-10 ">
         <div className="row">
@@ -54,7 +53,7 @@ export const SmallFilter = () => {
         Filter
         </button>
         <div className="dropdown-menu mt-2 position-relative filter-container px-3">
-          <CollectionFilter />
+          <PersonalFilter />
         </div>
       </div>
     );
