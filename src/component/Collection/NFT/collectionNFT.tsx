@@ -3,7 +3,6 @@ import popcat from "../../../asset/popcat.jpg";
 import "../../../styles/pages/Collection/NFT.scss";
 import avatar from "../../../asset/avatar.png";
 import ETH from "../../../asset/eth.svg";
-import more from "../../../asset/more.svg";
 const collectionNFT = () => {
   return (
     <div className="card shadow NFT-card">
@@ -16,10 +15,10 @@ const collectionNFT = () => {
           <div className="card-title NFT-name m-0 p-2 pb-0">Card title</div>
           <div className=" m-0  container-fluid">
             <div className="starting-at-text  ">Price:</div>
-            <div className="d-flex align-items-center">
-              <div className="nft-item-price pe-2">13.8</div>
+            <div className="d-flex align-items-center ">
+              <div className="nft-item-price NFT-price-width pe-2">0.12438</div>
               <img src={ETH} className="nft-eth-icon" alt="..." />
-              <img src ={more}/>
+           
             </div>
           </div>
         </div>
