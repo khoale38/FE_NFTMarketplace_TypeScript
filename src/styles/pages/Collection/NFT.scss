@@ -99,3 +99,56 @@ max-width: 100px !important;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+
+.middle-buy-now-container {
+  width: max-content;
+  transition: .5s ease!important;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.layer-container:hover .NFT-layer {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.layer-container:hover .middle-buy-now-container {
+ 
+  opacity: 1!important;
+}
+.layer-container {
+  position: relative;
+}
+
+.NFT-buy-now {
+  background-image: linear-gradient(
+    to right,
+    #f9e0b3 0%,
+    #f5b5b8 14.2%,
+    #ae9ae0 28.5%,
+    #a4f6d7 42.8%,
+    #ae9ae0 71.4%,
+    #f5b5b8 85.7%,
+    #f9e0b3 100%
+  );
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  color: #fff !important;
+  transition: 1s!important;
+  background-size: 200% auto!important;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 10px !important;
+  border-color: transparent !important;
+}
+.NFT-buy-now:hover {
+  background-position: right center !important; /* change the direction of the change here */
+
+  text-decoration: none !important;
+}
