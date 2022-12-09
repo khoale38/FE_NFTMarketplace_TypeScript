@@ -27,7 +27,7 @@ const CollectionFilterAndNFTS = () => {
         <div className="col-lg-10 ">
           <div className="row">
             {NFTs.map((item) => (
-              <div className="col-lg-3 col-md-6 py-3  ">
+              <div className="col-xl-3 col-lg-4 col-md-6 py-3  ">
                 <CollectionNFT />
               </div>
             ))}

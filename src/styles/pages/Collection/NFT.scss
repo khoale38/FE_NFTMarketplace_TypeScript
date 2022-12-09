@@ -23,9 +23,12 @@
 }
 
 .NFT-card {
-  border-radius: 15px !important;  
+  border-radius: 15px !important;
   min-width: 249px !important;
+}
 
+.card-title {
+  width: max-content;
 }
 
 .NFT-name {
@@ -52,12 +55,9 @@
     max-height: 6rem !important;
   }
   .NFT-square {
-
     max-width: 6rem !important;
     max-height: 6rem !important;
-
   }
-  
 }
 
 .nft-eth-icon {
@@ -75,15 +75,14 @@
   color: #d4d4d4;
 }
 
-.NFT-price-width{
-max-width: 100px !important;
-
+.NFT-price-width {
+  max-width: 100px !important;
 }
 
 .nft-item-price {
-  white-space:nowrap!important;
-  overflow: hidden!important;
-  text-overflow: ellipsis!important; 
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
@@ -100,10 +99,9 @@ max-width: 100px !important;
   background-clip: text;
 }
 
-
 .middle-buy-now-container {
   width: max-content;
-  transition: .5s ease!important;
+  transition: 0.5s ease !important;
   opacity: 0;
   position: absolute;
   top: 50%;
@@ -118,8 +116,7 @@ max-width: 100px !important;
 }
 
 .layer-container:hover .middle-buy-now-container {
- 
-  opacity: 1!important;
+  opacity: 1 !important;
 }
 .layer-container {
   position: relative;
@@ -140,8 +137,8 @@ max-width: 100px !important;
   font-style: normal;
   font-weight: 700;
   color: #fff !important;
-  transition: 1s!important;
-  background-size: 200% auto!important;
+  transition: 1s !important;
+  background-size: 200% auto !important;
   font-size: 16px;
   padding: 16px 32px;
   border-radius: 10px !important;

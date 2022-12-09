@@ -14,7 +14,7 @@ const collectionNFT = () => {
           </div>
           <div className="container-fluid p-0">
             <div className="card-title NFT-name m-0 p-2 pb-0">Card title</div>
-            <div className=" m-0  container-fluid">
+            <div className=" m-0  container-fluid card-title">
               <div className="starting-at-text  ">Price:</div>
               <div className="d-flex align-items-center ">
                 <div className="nft-item-price NFT-price-width pe-2">
