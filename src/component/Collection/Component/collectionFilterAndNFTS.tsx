@@ -1,6 +1,6 @@
 import React from "react";
 import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss";
-import CollectionFilter from "../CollectionFilter/CollectionFilter";
+import CollectionFilter from "../CollectionFilter/collectionFilter";
 import CollectionNFT from "../NFT/collectionNFT";
 const CollectionFilterAndNFTS = () => {
   //getting window size

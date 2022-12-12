@@ -3,7 +3,15 @@ import popcat from "../../../asset/popcat.jpg";
 import "../../../styles/pages/Collection/NFT.scss";
 import avatar from "../../../asset/avatar.png";
 import ETH from "../../../asset/eth.svg";
-const collectionNFT = () => {
+import CollectionBuyModal from "../Component/collectionBuyModal";
+
+
+const CollectionNFT = () => {
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div className="layer-container">
       <div className="card shadow NFT-card NFT-layer">
@@ -27,10 +35,11 @@ const collectionNFT = () => {
         </div>
       </div>
       <div className="middle-buy-now-container">
-        <div className="NFT-buy-now">Buy Now</div>
+        <div className="NFT-buy-now" onClick={handleOpen}>Buy Now</div>
       </div>
+      <CollectionBuyModal open={open} handleClose={handleClose}/>
     </div>
   );
 };
 
-export default collectionNFT;
+export default CollectionNFT;

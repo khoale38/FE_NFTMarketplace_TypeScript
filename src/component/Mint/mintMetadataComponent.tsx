@@ -37,7 +37,7 @@ const MintMetadataComponent = () => {
     <div className="d-flex  justify-content-between my-1">
       <div>
         <div className="mint-text-style mint-heading2">
-          <img src={multiline} className="mint-properties-icon" /> Properties
+          <img src={multiline} alt='multiline' className="mint-properties-icon" /> Properties
         </div>
 
         <div className="mint-text-style mint-explanation mint-grey-text">
@@ -45,7 +45,7 @@ const MintMetadataComponent = () => {
         </div>
       </div>
       <Button onClick={handleOpen}>
-        <img src={add} />
+        <img src={add}  alt='add'/>
       </Button>
 
       <Modal
