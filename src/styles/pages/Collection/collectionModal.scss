@@ -1,0 +1,45 @@
+.collection-modal-header {
+  background: linear-gradient(
+    to right,
+    #ff75c3 0%,
+    #ffa647 20%,
+    #ffe83f 40%,
+    #9fff5b 60%,
+    #70e2ff 80%,
+    #cd93ff 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.collection-modal-style {
+  font-family: "Poppins";
+  font-style: bold;
+}
+
+.collection-modal-heading1 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.collection-modal-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.collection-modal-black-text {
+  color: #000;
+}
+.collection-modal-red-text {
+  color: #ff0000;
+}
+
+.collection-modal-grey-text {
+  color: #ced4da;
+}
+
+.collection-modal-border-solid {
+  border-bottom: 2px solid #d9d9d9;
+}
+
+
