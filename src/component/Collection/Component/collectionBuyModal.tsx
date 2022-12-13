@@ -5,8 +5,9 @@ import close from "../../../asset/close1.svg";
 import "../../../styles/pages/Collection/collectionModal.scss";
 import popcat from "../../../asset/popcat.jpg";
 import Box from "@mui/material/Box";
-import Wallet from "../../../asset/wallet.svg"
+import Wallet from "../../../asset/wallet.svg";
 import CollectionModalBuyItems from "./collectionBuyModalComponent";
+import CollectionBuyModalComponentRadio from "./collectionBuyModalComponentRadio";
 const CollectionBuyModal = (props: any) => {
   const style = {
     position: "absolute",
@@ -20,6 +21,7 @@ const CollectionBuyModal = (props: any) => {
     maxWidth: "550px",
     p: 4,
   };
+  const paymentMethod = ["ETH", "Card"];
   return (
     <div>
       <Modal
@@ -53,12 +55,26 @@ const CollectionBuyModal = (props: any) => {
                 Payment methods
               </div>
             </div>
+            {paymentMethod.map((e) => {
+              return <CollectionBuyModalComponentRadio method={e} />;
+            })}
             <div className="d-flex container-fluid collection-modal-border-solid p-0 align-items-center">
               <div className="collection-modal-style collection-modal-black-text collection-modal-title">
                 Send to diffent wallet
               </div>
-              <img src={Wallet} alt='wallet' className="collection-modal-wallet"/>
+              <img
+                src={Wallet}
+                alt="wallet"
+                className="collection-modal-wallet"
+              />
             </div>
+          
+              <input
+                type="text"
+                className="container-fluid "
+                placeholder="e.g 0x8fac64d1...2klf8270b "
+              />
+           <div>Make sure you're sending to the correct address as lost items can't be recovered.</div>
             <button
               type="button"
               className="btn btn-primary container-fluid collection-save-btn py-2"
