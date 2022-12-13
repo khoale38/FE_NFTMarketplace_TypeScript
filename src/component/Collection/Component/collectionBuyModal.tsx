@@ -46,10 +46,16 @@ const CollectionBuyModal = (props: any) => {
                 Items
               </div>
               <div className="collection-modal-style collection-modal-black-text collection-modal-title">
-                Total
+                Price
               </div>
             </div>
-            <CollectionModalBuyItems />
+            <div className="overflow-auto collection-list-item-modal container-fluid p-0">
+              <CollectionModalBuyItems />
+              <CollectionModalBuyItems />
+              <CollectionModalBuyItems />
+              <CollectionModalBuyItems />
+            </div>
+
             <div className="d-flex container-fluid  collection-modal-border-solid p-0">
               <div className="collection-modal-style collection-modal-black-text collection-modal-title">
                 Payment methods
@@ -82,7 +88,7 @@ const CollectionBuyModal = (props: any) => {
               type="button"
               className="btn btn-primary container-fluid collection-save-btn py-2 "
             >
-              Save
+              Complete purchase
             </button>
           </div>
         </Box>
