@@ -27,6 +27,12 @@
   font-size: 16px;
 }
 
+.collection-modal-warning {
+  font-weight: 500;
+  font-size: 12px;
+  color: #666666;
+}
+
 .collection-modal-black-text {
   color: #000;
 }
@@ -42,32 +48,43 @@
   border-bottom: 2px solid #d9d9d9;
 }
 
-
-.collection-save-btn{
+.collection-save-btn {
   font-family: "Poppins" !important;
   font-style: normal !important;
   font-weight: 700 !important;
   font-size: 18px !important;
   background-image: linear-gradient(
-  to right,
-  #f9e0b3 0%,
-  #f5b5b8 14.2%,
-  #ae9ae0 28.5%,
-  #a4f6d7 42.8%,
-  #ae9ae0 71.4%,
-  #f5b5b8 85.7%,
-  #f9e0b3 100%
-);
-transition: 1s !important;
-background-size: 200% auto !important;
+    to right,
+    #f9e0b3 0%,
+    #f5b5b8 14.2%,
+    #ae9ae0 28.5%,
+    #a4f6d7 42.8%,
+    #ae9ae0 71.4%,
+    #f5b5b8 85.7%,
+    #f9e0b3 100%
+  );
+  transition: 1s !important;
+  background-size: 200% auto !important;
 
-border-radius: 5px !important;
-border-color: transparent !important;
-color: #fff !important;
+  border-radius: 5px !important;
+  border-color: transparent !important;
+  color: #fff !important;
 }
 
+.collection-modal-wallet {
+  width: 1.25rem;
+  height: 1.184rem;
+}
 
-.collection-modal-wallet{
-  width:1.25rem;
-  height:1.184rem;
+.collection-modal-textfield {
+  outline: 0;
+  padding: 5px;
+  padding-left: 10px;
+  border: none;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 10px !important;
+  border-color: #d9d9d9 !important;
+  font-family: "Poppins";
+  font-style: normal;
 }

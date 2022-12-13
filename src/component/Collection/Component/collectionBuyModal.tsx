@@ -59,7 +59,7 @@ const CollectionBuyModal = (props: any) => {
               return <CollectionBuyModalComponentRadio method={e} />;
             })}
             <div className="d-flex container-fluid collection-modal-border-solid p-0 align-items-center">
-              <div className="collection-modal-style collection-modal-black-text collection-modal-title">
+              <div className="collection-modal-style collection-modal-black-text collection-modal-title me-2">
                 Send to diffent wallet
               </div>
               <img
@@ -68,16 +68,19 @@ const CollectionBuyModal = (props: any) => {
                 className="collection-modal-wallet"
               />
             </div>
-          
-              <input
-                type="text"
-                className="container-fluid "
-                placeholder="e.g 0x8fac64d1...2klf8270b "
-              />
-           <div>Make sure you're sending to the correct address as lost items can't be recovered.</div>
+
+            <input
+              type="text"
+              className="container-fluid collection-modal-textfield mt-3"
+              placeholder="e.g 0x8fac64d1...2klf8270b"
+            />
+            <div className="collection-modal-warning collection-modal-style my-2">
+              Make sure you're sending to the correct address as lost items
+              can't be recovered.
+            </div>
             <button
               type="button"
-              className="btn btn-primary container-fluid collection-save-btn py-2"
+              className="btn btn-primary container-fluid collection-save-btn py-2 "
             >
               Save
             </button>
