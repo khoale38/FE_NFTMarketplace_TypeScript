@@ -8,7 +8,7 @@ const collectionBuyModalComponentRadio = (props: any) => {
         className="form-check-input"
         type="radio"
         name="flexRadioDefault"
-        id="flexRadioDefault1"
+        id="flexRadioDefault"
       />
       <div className="radio-box-container-img  mx-2">
         <img src={ETH} alt="method" className="radio-img " />

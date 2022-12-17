@@ -8,7 +8,7 @@ const collectionQuantityComponent: React.FC<Quantity> = (props: Quantity) => {
       <input
         className="form-check-input"
         type="radio"
-        name="flexRadioDefault"
+        name="flexRadioDefault1"
         id="flexRadioDefault1"
       />
       <label
