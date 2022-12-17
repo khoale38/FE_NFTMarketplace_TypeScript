@@ -2,10 +2,14 @@ import React from "react";
 import popcat from "../../asset/popcat.jpg";
 import "../../styles/pages/Collection/NFT.scss";
 import "../../styles/pages/Personal/personalNFT.scss";
-import avatar from "../../asset/avatar.png";
+
 import ETH from "../../asset/eth.svg";
 import more from "../../asset/more.svg";
-const personalNFT = () => {
+import PersonalSellNFTModal from "./personalSellNFTModal";
+const PersonalNFT = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <div className="card shadow NFT-card">
       <img src={popcat} className=" NFT-img" alt="..." />
@@ -17,13 +21,18 @@ const personalNFT = () => {
               <img src={ETH} className="nft-eth-icon" alt="..." />
               <div className="nft-item-price ps-3">13.8</div>
               <div className=" dropup ms-auto">
-                <img className="personal-NFT-more" alt="more" src={more} data-bs-toggle="dropdown" />
+                <img
+                  className="personal-NFT-more"
+                  alt="more"
+                  src={more}
+                  data-bs-toggle="dropdown"
+                />
 
                 <ul className="dropdown-menu dropdown-menu-end personal-NFT-more-dropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <button className="dropdown-item" onClick={handleOpen}>
                       List for Sale
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -31,8 +40,9 @@ const personalNFT = () => {
           </div>
         </div>
       </div>
+      <PersonalSellNFTModal open={open} handleClose={handleClose} />
     </div>
   );
 };
 
-export default personalNFT;
+export default PersonalNFT;

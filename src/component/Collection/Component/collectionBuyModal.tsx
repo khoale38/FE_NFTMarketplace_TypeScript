@@ -1,9 +1,9 @@
 import React from "react";
 import Modal from "@mui/material/Modal";
-import Button from "@mui/material/Button";
+
 import close from "../../../asset/close1.svg";
 import "../../../styles/pages/Collection/collectionModal.scss";
-import popcat from "../../../asset/popcat.jpg";
+
 import Box from "@mui/material/Box";
 import Wallet from "../../../asset/wallet.svg";
 import CollectionModalBuyItems from "./collectionBuyModalComponent";
