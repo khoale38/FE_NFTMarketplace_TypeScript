@@ -7,15 +7,60 @@
   height: 14.5rem;
   object-fit: contain;
   background-color: #d4d4d4;
+  
+}
 
+.personal-sell-modal-input {
+  height: 2.5rem;
 }
 
 
-.personal-sell-modal-input{
-    height: 2.5rem;
+
+.personal-sell-modal-divider {
+  border-radius: 30px;
+  height: 0.125rem !important;
+  background-color: black;
 }
-.personal-sell-modal-divider{
-    border-radius: 30px;
-    height: 0.125rem !important;
-    background-color: black;
+
+.personal-sell-modal-text {
+  font-family: "Poppins";
+  font-style: normal;
 }
+
+.personal-sell-modal-bold {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+
+
+.personal-NFT-more-dropdown-menu{
+    min-width: min-content !important;
+}
+
+.personal-NFT-more-dropdown-open{
+    border-radius: 0px 8px 8px 0px!important;
+    height: 40px!important;
+}
+
+
+
+.personal-modal-textfield {
+    outline: none!important;
+    padding: 5px;
+    padding-left: 10px;
+    border: none;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px 0px 0px 10px!important;
+    border-color: #d9d9d9 !important;
+    font-family: "Poppins";
+    font-style: normal;
+  }
+  
+  
+.personal-modal-textfield:focus {
+    outline: 0!important;
+
+  }
+  
