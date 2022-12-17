@@ -11,7 +11,7 @@ const personalSellNFTModal = (props: any) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "500px",
+    width: "auto",
     bgcolor: "background.paper",
     borderRadius: 6,
     maxWidth: "550px",
@@ -36,14 +36,13 @@ const personalSellNFTModal = (props: any) => {
               src={close}
               onClick={props.handleClose}
             />
-            <div className="d-flex my-3">
+            <div className="my-3 row">
               <img
                 src={popcat}
                 alt="avatar"
-                className="personal-sell-modal-image me-3"
+                className="personal-sell-modal-image me-3 col-lg"
               />
-              <div>
-                {" "}
+              <div className=" col-lg">
                 <div className="input-group mb-3 personal-sell-modal-input">
                   <input
                     type="text"
@@ -87,7 +86,7 @@ const personalSellNFTModal = (props: any) => {
                       <div>Creator Fee</div>
                       <div>0 %</div>
                     </div>
-                    <hr className="personal-sell-modal-divider container-fluid mt-2"/>
+                    <hr className="personal-sell-modal-divider container-fluid mt-2" />
                     <div className="d-flex container-fluid justify-content-between p-0">
                       <div>Potential Earning</div>
                       <div>12 ETH</div>

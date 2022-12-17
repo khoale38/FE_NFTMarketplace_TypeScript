@@ -14,11 +14,11 @@ const CollectionBuyModal = (props: any) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "500px",
+    width: "auto",
     bgcolor: "background.paper",
     borderRadius: 6,
 
-    maxWidth: "550px",
+    minWidth:"350px !important",
     p: 4,
   };
   const paymentMethod = ["ETH", "Card"];
