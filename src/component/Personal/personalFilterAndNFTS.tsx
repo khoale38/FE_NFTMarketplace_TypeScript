@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../../styles/pages/Collection/collectionFilterAndNFTS.scss";
 import PersonalFilter from './personalFilter';
 import PersonalNFT from './personalNFT';
-
+import GetNFTInfomation from "../../service/NFTApi"
 const PersonalFilterAndNFTS = () => {
       //getting window size
   const [width, setWidth] = React.useState(window.innerWidth);
   const [height, setHeight] = React.useState(window.innerHeight);
+
+
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
@@ -15,6 +17,7 @@ const PersonalFilterAndNFTS = () => {
     window.addEventListener("resize", updateWidthAndHeight);
     return () => window.removeEventListener("resize", updateWidthAndHeight);
   });
+
 
   const NFTs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 

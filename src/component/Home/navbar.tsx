@@ -1,15 +1,21 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import logo from "../../asset/logo.svg";
 import { useState } from "react";
 import "../../styles/pages/Home/home.scss";
 import searchIcon from "../../asset/search.svg";
 import LoggedUI from "../../component/Home/logged";
+import { useNavigate, useParams, createSearchParams } from "react-router-dom";
+import path from "path";
+
 const Navbar = () => {
-    const [logged, setlogged] = useState<boolean | null>(true);
+  const [logged, setlogged] = useState<boolean | null>(true);
+  const navigate = useNavigate();
+  let { userId } = useParams();
   return (
     <nav className="navbar shadow navbar-expand-lg bg-light  ">
       <div className="container-fluid">
-        <img src={logo} className="logo" />
+        <img src={logo} className="logo" alt="logo" />
         <button
           className="navbar-toggler collapsed"
           type="button"
@@ -27,8 +33,19 @@ const Navbar = () => {
         >
           <ul className="navbar-nav centerNavItems   py-2 col-12">
             <div className="form-control searchBar ">
-              <img src={searchIcon} />
-              <input placeholder="Search" className="searchInput" />
+              <img src={searchIcon} alt="search" />
+              <input
+                placeholder="Search"
+                className="searchInput"
+                onKeyDown={(e) => {
+                  userId = e.currentTarget.value;
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    navigate(`/personal/${userId}`);
+                  }
+                }}
+              />
             </div>
 
             <li className="nav-item">Explore</li>

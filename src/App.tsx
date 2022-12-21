@@ -16,7 +16,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/collection" element={<CollectionPage />} />
         <Route path="/mint" element={<MintPage />} />
-        <Route path="/personal" element={<PersonalPage />} />
+        <Route path="/personal/:userId" element={<PersonalPage />} />
       </Routes>
     </BrowserRouter>
   );
