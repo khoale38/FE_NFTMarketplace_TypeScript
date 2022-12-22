@@ -7,7 +7,7 @@ const Collectionlistview = () => {
     <div className="px-5 py-3">
       <div className="row">
         {collection.map((item) => (
-          <div className="col-lg-3 col-md-6 py-3 "><Collection/></div>
+          <div className="col-xl-3 col-lg-4 col-md-6 py-3 "><Collection/></div>
         ))}
       </div>
     </div>

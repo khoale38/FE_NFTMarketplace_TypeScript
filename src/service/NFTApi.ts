@@ -1,15 +1,19 @@
+import { AxiosError } from "axios";
+import { WalletNFT } from "model/NFT";
 import axios from "./axios";
 
  class GetNFTInfomation {
-  async findNFTWithAddress(address:string): Promise<any> {
-    return axios
+  async findNFTWithAddress(address:string): Promise<WalletNFT> {
+    let temp!:any
+    await axios
       .post(`/owner/${address}`)
       .then(function (response) {
-        console.log(response);
+        temp =response.data as WalletNFT
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (error:AxiosError) {
+        temp =error.response?.data
       });
+      return temp
   }
 }
 
