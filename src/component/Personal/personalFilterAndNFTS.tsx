@@ -24,7 +24,6 @@ const PersonalFilterAndNFTS = (props: any) => {
     return () => window.removeEventListener("resize", updateWidthAndHeight);
   });
 
-
   return (
     <div className="container-fluid">
       <div className="row px-5">
@@ -34,9 +33,19 @@ const PersonalFilterAndNFTS = (props: any) => {
         </div>
         <div className="col-lg-10 ">
           <div className="row">
-            {nftState?.ownedNfts.map((item:OwnedNft) => (
+            {nftState?.ownedNfts.map((item: OwnedNft) => (
               <div className="col-xl-3 col-lg-4 col-md-6 py-3 ">
-                <PersonalNFT />
+                <PersonalNFT
+                  contract={item.contract}
+                  tokenId={item.tokenId}
+                  tokenType={item.tokenType}
+                  title={item.title}
+                  description={item.description}
+                  timeLastUpdated={item.timeLastUpdated}
+                  rawMetadata={item.rawMetadata}
+                  media={item.media}
+                  balance={item.balance}
+                />
               </div>
             ))}
           </div>

@@ -3,8 +3,8 @@
   border-top-right-radius: 25px;
   padding: 0.8rem;
   padding-bottom: 0;
-  object-fit: cover;
-  max-height: 19.313rem;
+  object-fit: contain;
+  height: 19.313rem;
 }
 
 .NFT-cbody {
@@ -28,7 +28,11 @@
 }
 
 .card-title {
-  width: max-content;
+  max-width: 250px;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .NFT-name {
