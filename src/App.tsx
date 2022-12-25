@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import PersonalPage from "pages/Personal/personalPage";
+import RedirectPage from "pages/OnError/redirectPage";
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/collection" element={<CollectionPage />} />
         <Route path="/mint" element={<MintPage />} />
         <Route path="/personal/:userId" element={<PersonalPage />} />
+        <Route path='*' element={<RedirectPage/>}></Route>
       </Routes>
     </BrowserRouter>
   );

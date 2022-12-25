@@ -3,6 +3,7 @@ export interface WalletNFT {
     ownedNfts: OwnedNft[]
     pageKey: any
     totalCount: number
+    isError:boolean
   }
   
   export interface OwnedNft {

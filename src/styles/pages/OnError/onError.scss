@@ -1,0 +1,19 @@
+.error-text {
+  font-family: "Poppins" !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  text-align: center !important;
+}
+
+.center-error-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-img {
+  width: 50%;
+  height: auto;
+}

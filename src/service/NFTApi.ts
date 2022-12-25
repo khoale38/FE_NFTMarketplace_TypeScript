@@ -4,14 +4,15 @@ import axios from "./axios";
 
  class GetNFTInfomation {
   async findNFTWithAddress(address:string): Promise<WalletNFT> {
-    let temp!:any
+    let temp!:WalletNFT
     await axios
       .post(`/owner/${address}`)
       .then(function (response) {
         temp =response.data as WalletNFT
+
       })
       .catch(function (error:AxiosError) {
-        temp =error.response?.data
+        temp.isError=true;
       });
       return temp
   }

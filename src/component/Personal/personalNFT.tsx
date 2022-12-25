@@ -11,7 +11,7 @@ const PersonalNFT = (props: OwnedNft) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(props.rawMetadata.image);
+
 
   return (
     <div className="card shadow NFT-card">

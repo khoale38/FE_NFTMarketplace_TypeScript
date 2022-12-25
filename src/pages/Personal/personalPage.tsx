@@ -6,32 +6,33 @@ import PersonalFilterAndNFTS from "component/Personal/personalFilterAndNFTS";
 import { useParams, useSearchParams } from "react-router-dom";
 import GetNFTInfomation from "../../service/NFTApi";
 import { WalletNFT } from "model/NFT";
-
+import OnErrorPage from "pages/OnError/onErrorPage";
 const PersonalPage = () => {
   const { userId } = useParams();
-  let walletNFT!: WalletNFT;
   let [isValid, setIsValid] = useState<Boolean>(false);
   let [nftState, setNftState] = useState<WalletNFT>();
+  let Error:string ="No User Found";
   useEffect(() => {
     test();
   }, [userId]);
 
   async function test() {
     await setNftState(await GetNFTInfomation.findNFTWithAddress(userId!));
-    setIsValid(walletNFT.address === undefined);
+    setIsValid(nftState?.address == undefined)
   }
 
+ 
   return (
     <div>
       <NavBar />
-      {!isValid ? (
+      {isValid? (
         <div>
           <PersonalBody />
           <PersonalFilterBar />
           <PersonalFilterAndNFTS nft={nftState} />
         </div>
       ) : (
-        <div>No Object </div>
+        <div><OnErrorPage input={Error}/> </div>
       )}
     </div>
   );
