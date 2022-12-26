@@ -35,6 +35,7 @@ const Navbar = () => {
             <div className="form-control searchBar ">
               <img src={searchIcon} alt="search" />
               <input
+              key="address"
                 placeholder="Search"
                 className="searchInput"
                 onKeyDown={(e) => {
@@ -43,6 +44,8 @@ const Navbar = () => {
                     e.preventDefault();
                     e.stopPropagation();
                     navigate(`/personal/${userId}`);
+                    e.currentTarget.value=""
+                    e.currentTarget.blur()
                   }
                 }}
               />
