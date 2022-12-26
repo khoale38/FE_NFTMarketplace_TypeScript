@@ -3,20 +3,10 @@ import { Http2ServerRequest } from "http2";
 import { WalletNFT } from "model/NFT";
 import axios from "./axios";
 
- class GetNFTInfomation {
-   findNFTWithAddress(address:string): Promise<WalletNFT> {
-    
-     return axios
-      .post(`/owner/${address}`)
-      // .then(function (response) {
-      //   temp =response.data as WalletNFT
-
-      // })
-      // .catch(function (error:AxiosError) {
-      //   temp=error
-      // });
-     
+class GetNFTInfomation {
+  findNFTWithAddress(address: string): Promise<WalletNFT> {
+    return axios.post(`/owner/${address}`);
   }
 }
 
-export default new GetNFTInfomation()
+export default new GetNFTInfomation();

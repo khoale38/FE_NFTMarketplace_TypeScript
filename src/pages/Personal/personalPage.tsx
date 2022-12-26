@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import  { useEffect, useState, useCallback } from "react";
 import NavBar from "../../component/Home/navbar";
 import PersonalBody from "component/Personal/personalbody";
 import PersonalFilterBar from "component/Personal/personalFilterBar";
@@ -14,12 +14,9 @@ const PersonalPage = () => {
   let [nftState, setNftState] = useState<WalletNFT>();
   let Error: string = "No User Found";
 
-  useEffect(() => {
-    fetch()
-  }, [userId]);
 
-function fetch(){
-  GetNFTInfomation.findNFTWithAddress(userId!)
+  const fetch = useCallback(() => {
+    GetNFTInfomation.findNFTWithAddress(userId!)
         .then((response: any) => {
           console.log(response);
           setNftState(response.data as WalletNFT);
@@ -28,8 +25,15 @@ function fetch(){
         .catch(() => {
           setIsValid(false);
         })
-       
-}
+  }, [userId]);
+
+ 
+  useEffect(() => {
+    fetch()
+  }, [fetch]);
+
+
+
    
   return (
     <div>
