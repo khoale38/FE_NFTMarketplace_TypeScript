@@ -4,7 +4,7 @@ import popcat from "../../asset/popcat.jpg";
 import close from "../../asset/close1.svg";
 import Box from "@mui/material/Box";
 import "../../styles/pages/Personal/personalNFT.scss";
-
+import PersonalSellNFTModalDurationDropDown from "./personalSellNFTModalDurationDropDown";
 const personalSellNFTModal = (props: any) => {
   const style = {
     position: "absolute",
@@ -45,8 +45,9 @@ const personalSellNFTModal = (props: any) => {
               <div className=" col-lg mt-3 mt-md-0">
                 <div className="d-flex flex-column mb-3">
                   <div className="personal-sell-modal-text personal-sell-modal-bold">
-                    Type of sale </div>
-                  <div className="d-flex mb-2 mt-3">
+                    Type of sale{" "}
+                  </div>
+                  <div className="d-flex mb-2 mt-2">
                     <input
                       className="form-check-input"
                       type="radio"
@@ -75,7 +76,7 @@ const personalSellNFTModal = (props: any) => {
                     </label>
                   </div>
                 </div>
-                <div className="input-group mb-3 personal-sell-modal-input">
+                <div className="input-group mb-2 personal-sell-modal-input">
                   <input
                     type="text"
                     placeholder="Input a price"
@@ -103,37 +104,38 @@ const personalSellNFTModal = (props: any) => {
                       </li>
                     </ul>
                   </div>
+                 
                 </div>
-         
+                <div>
+                  <div className="personal-sell-modal-text personal-sell-modal-bold mb-2">Choose Duration</div>
+                    <PersonalSellNFTModalDurationDropDown />
+                  </div>
               </div>
             </div>
             <div className="container-fluid">
-                  <div className="personal-sell-modal-text personal-sell-modal-bold ">
-                  
-                    Summary
-                  </div>
-                  <div className="mt-2">
-                    <div className="d-flex container-fluid justify-content-between personal-sell-modal-text">
-                      <div className=" ">Listing Fee</div>
-                      <div>12 ETH</div>
-                    </div>
-                    <div className="d-flex container-fluid justify-content-between personal-sell-modal-text">
-                      <div>Service Fee</div>
-                      <div>2.5 %</div>
-                    </div>
-                    <div className="d-flex container-fluid justify-content-between personal-sell-modal-text">
-                      <div>Creator Fee</div>
-                      <div>0 %</div>
-                    </div>
-                    <hr className="personal-sell-modal-divider container-fluid mt-2" />
-                    <div className="d-flex container-fluid justify-content-between p-0 personal-sell-modal-text align-items-center">
-                      <div className="personal-sell-modal-bold">
-                        Total Earning
-                      </div>
-                      <div>12 ETH</div>
-                    </div>
-                  </div>
+              <div className="personal-sell-modal-text personal-sell-modal-bold ">
+                Summary
+              </div>
+              <div className="mt-2">
+                <div className="d-flex container-fluid justify-content-between personal-sell-modal-text">
+                  <div className=" ">Listing Fee</div>
+                  <div>12 ETH</div>
                 </div>
+                <div className="d-flex container-fluid justify-content-between personal-sell-modal-text">
+                  <div>Service Fee</div>
+                  <div>2.5 %</div>
+                </div>
+                <div className="d-flex container-fluid justify-content-between personal-sell-modal-text">
+                  <div>Creator Fee</div>
+                  <div>0 %</div>
+                </div>
+                <hr className="personal-sell-modal-divider container-fluid mt-2" />
+                <div className="d-flex container-fluid justify-content-between p-0 personal-sell-modal-text align-items-center">
+                  <div className="personal-sell-modal-bold">Total Earning</div>
+                  <div>12 ETH</div>
+                </div>
+              </div>
+            </div>
             <button
               type="button"
               className="btn btn-primary container-fluid collection-save-btn py-2 mt-3"
