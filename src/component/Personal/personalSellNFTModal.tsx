@@ -17,6 +17,11 @@ const personalSellNFTModal = (props: any) => {
 
     p: 4,
   };
+
+  const handleSale = () => {
+    
+  }
+
   return (
     <div>
       <Modal
@@ -138,7 +143,8 @@ const personalSellNFTModal = (props: any) => {
             </div>
             <button
               type="button"
-              className="btn btn-primary container-fluid collection-save-btn py-2 mt-3"
+              className="btn btn-primary container-fluid collection-save-btn py-2 "
+              onClick={handleSale}
             >
               List For Sale
             </button>
