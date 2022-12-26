@@ -46,7 +46,7 @@ const PersonalPage = () => {
         </div>
       ) : (
         <div>
-          <OnErrorPage input={Error} />{" "}
+          <OnErrorPage input={Error} />
         </div>
       )}
     </div>

@@ -14,7 +14,7 @@ const personalSellNFTModal = (props: any) => {
     width: "auto",
     bgcolor: "background.paper",
     borderRadius: 6,
-    maxWidth: "550px",
+
     p: 4,
   };
   return (
@@ -43,12 +43,43 @@ const personalSellNFTModal = (props: any) => {
                 className="personal-sell-modal-image me-3 col-lg"
               />
               <div className=" col-lg mt-3 mt-md-0">
+                <div className="d-flex flex-column mb-3">
+                  <div className="personal-sell-modal-text personal-sell-modal-bold">
+                    Type of sale </div>
+                  <div className="d-flex mb-2 mt-3">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault2"
+                      id="flexRadioDefault2"
+                    />
+                    <label
+                      className="form-check-label filter-item"
+                      htmlFor="flexRadioDefault2"
+                    >
+                      List for sale
+                    </label>
+                  </div>
+                  <div className="d-flex">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault2"
+                      id="flexRadioDefault2"
+                    />
+                    <label
+                      className="form-check-label filter-item"
+                      htmlFor="flexRadioDefault2"
+                    >
+                      List for auction
+                    </label>
+                  </div>
+                </div>
                 <div className="input-group mb-3 personal-sell-modal-input">
                   <input
                     type="text"
                     placeholder="Input a price"
                     className="form-control personal-sell-modal-text personal-modal-textfield "
-
                   />
                   <div className="dropdown-center personal-sell-modal-text">
                     <button
@@ -73,9 +104,12 @@ const personalSellNFTModal = (props: any) => {
                     </ul>
                   </div>
                 </div>
-                <div>
+         
+              </div>
+            </div>
+            <div className="container-fluid">
                   <div className="personal-sell-modal-text personal-sell-modal-bold ">
-                    {" "}
+                  
                     Summary
                   </div>
                   <div className="mt-2">
@@ -100,12 +134,9 @@ const personalSellNFTModal = (props: any) => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
             <button
               type="button"
-              className="btn btn-primary container-fluid collection-save-btn py-2 "
+              className="btn btn-primary container-fluid collection-save-btn py-2 mt-3"
             >
               List For Sale
             </button>
