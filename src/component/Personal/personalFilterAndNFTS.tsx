@@ -8,7 +8,7 @@ const PersonalFilterAndNFTS = (props: any) => {
   //getting window size
   const [width, setWidth] = React.useState(window.innerWidth);
   const [height, setHeight] = React.useState(window.innerHeight);
-  let [nftState, setNftState] = useState<WalletNFT>();
+  let [nftState, setNftState] = useState<OwnedNft[]>();
 
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
@@ -16,8 +16,8 @@ const PersonalFilterAndNFTS = (props: any) => {
   };
 
   useEffect(() => {
-    setNftState(props.nft);
-  }, [props.nft]);
+    setNftState(props.ownNft);
+  }, [props.ownNft]);
 
   useEffect(() => {
     window.addEventListener("resize", updateWidthAndHeight);
@@ -33,46 +33,23 @@ const PersonalFilterAndNFTS = (props: any) => {
         </div>
         <div className="col-lg-10 ">
           <div className="row">
-            {props.searchState === ""
-              ? nftState?.ownedNfts.map((item: OwnedNft) => {
-                  return (
-                    <div className="col-xl-3 col-lg-4 col-md-6 py-3 ">
-                      <PersonalNFT
-                        contract={item.contract}
-                        tokenId={item.tokenId}
-                        tokenType={item.tokenType}
-                        title={item.title}
-                        description={item.description}
-                        timeLastUpdated={item.timeLastUpdated}
-                        rawMetadata={item.rawMetadata}
-                        media={item.media}
-                        balance={item.balance}
-                      />
-                    </div>
-                  );
-                })
-              : nftState?.ownedNfts
-                  .filter((e) => {
-                    
-                    return e.title.toLowerCase().includes(props.searchState.toLowerCase());
-                  })
-                  .map((item: OwnedNft) => {
-                    return (
-                      <div className="col-xl-3 col-lg-4 col-md-6 py-3 ">
-                        <PersonalNFT
-                          contract={item.contract}
-                          tokenId={item.tokenId}
-                          tokenType={item.tokenType}
-                          title={item.title}
-                          description={item.description}
-                          timeLastUpdated={item.timeLastUpdated}
-                          rawMetadata={item.rawMetadata}
-                          media={item.media}
-                          balance={item.balance}
-                        />
-                      </div>
-                    );
-                  })}
+            {nftState?.map((item: OwnedNft) => {
+              return (
+                <div className="col-xl-3 col-lg-4 col-md-6 py-3 ">
+                  <PersonalNFT
+                    contract={item.contract}
+                    tokenId={item.tokenId}
+                    tokenType={item.tokenType}
+                    title={item.title}
+                    description={item.description}
+                    timeLastUpdated={item.timeLastUpdated}
+                    rawMetadata={item.rawMetadata}
+                    media={item.media}
+                    balance={item.balance}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

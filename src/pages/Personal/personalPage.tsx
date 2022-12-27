@@ -5,13 +5,14 @@ import PersonalFilterBar from "component/Personal/personalFilterBar";
 import PersonalFilterAndNFTS from "component/Personal/personalFilterAndNFTS";
 import { useParams, useSearchParams } from "react-router-dom";
 import GetNFTInfomation from "../../service/NFTApi";
-import { WalletNFT } from "model/NFT";
+import { OwnedNft, WalletNFT } from "model/NFT";
 import OnErrorPage from "pages/OnError/onErrorPage";
 
 const PersonalPage = () => {
   const { userId } = useParams();
   let [isValid, setIsValid] = useState<Boolean>(false);
-  let [nftState, setNftState] = useState<WalletNFT | any>();
+  let [nftState, setNftState] = useState<WalletNFT>();
+  let [ownNftState, setOwnNftState] = useState<OwnedNft[]>();
   let Error: string = "No User Found";
   let [searchState, setSearchState] = useState<string>("");
 
@@ -26,13 +27,30 @@ const PersonalPage = () => {
       });
   }, [userId]);
 
-  useEffect(() => {
-    fetch();
-  }, [fetch]);
-
   function getSearchValue(input: string) {
     setSearchState(input);
   }
+
+  const setListNFT = useCallback(() => {
+    if (searchState === "") {
+      setOwnNftState(nftState?.ownedNfts);
+    } else {
+      setOwnNftState(
+        nftState?.ownedNfts.filter((e) => {
+          return e.title.toLowerCase().includes(searchState!.toLowerCase());
+        })
+      );
+    }
+  }, [nftState?.ownedNfts, searchState]);
+
+  useEffect(() => {
+    fetch();
+    console.log(1)
+  }, [fetch]);
+
+  useEffect(() => {
+    setListNFT();
+  }, [setListNFT]);
 
   return (
     <div>
@@ -41,18 +59,13 @@ const PersonalPage = () => {
         <div>
           <PersonalBody />
           <PersonalFilterBar
-            amount={
-              searchState === ""
-                ? nftState?.ownedNfts.length
-                : nftState?.ownedNfts.filter((e: any) => {
-                    return e.title
-                      .toLowerCase()
-                      .includes(searchState.toLowerCase());
-                  }).length
-            }
+            amount={ownNftState?.length}
             onSearchChange={getSearchValue}
           />
-          <PersonalFilterAndNFTS nft={nftState} searchState={searchState} />
+          <PersonalFilterAndNFTS
+            ownNft={ownNftState}
+            searchState={searchState}
+          />
         </div>
       ) : (
         <div>
