@@ -7,7 +7,7 @@ const personalFilterBar = (props: any) => {
     <div className="d-flex  filterbar mx-5 my-3">
       <div className="d-flex flex-fill">
         <div className="form-control searchBar ">
-          <img src={searchIcon} />
+          <img src={searchIcon}  alt="search"/>
           <input
             placeholder="Search"
             className="searchInput px-2"
@@ -33,10 +33,7 @@ const personalFilterBar = (props: any) => {
           </button>
           <ul className="dropdown-menu custom-dropdown-menu filter-price px-2 my-1">
             <li>
-              <a
-                className="dropdown-item custom-dropdown-item filter-text text-left"
-                href="#"
-              >
+              <a className="dropdown-item custom-dropdown-item filter-text text-left">
                 Newest to Oldest
               </a>
             </li>
@@ -44,10 +41,7 @@ const personalFilterBar = (props: any) => {
               <hr className="dropdown-divider" />
             </li>
             <li>
-              <a
-                className="dropdown-item custom-dropdown-item filter-text text-left"
-                href="#"
-              >
+              <a className="dropdown-item custom-dropdown-item filter-text text-left">
                 Oldest to Newest
               </a>
             </li>

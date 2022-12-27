@@ -1,4 +1,4 @@
-import  { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import NavBar from "../../component/Home/navbar";
 import PersonalBody from "component/Personal/personalbody";
 import PersonalFilterBar from "component/Personal/personalFilterBar";
@@ -11,43 +11,48 @@ import OnErrorPage from "pages/OnError/onErrorPage";
 const PersonalPage = () => {
   const { userId } = useParams();
   let [isValid, setIsValid] = useState<Boolean>(false);
-  let [nftState, setNftState] = useState<WalletNFT|any>();
+  let [nftState, setNftState] = useState<WalletNFT | any>();
   let Error: string = "No User Found";
-  let [searchState,setSearchState] =useState<string>("");
+  let [searchState, setSearchState] = useState<string>("");
 
   const fetch = useCallback(() => {
     GetNFTInfomation.findNFTWithAddress(userId!)
-        .then((response: any) => {
-          console.log(response);
-          setNftState(response.data as WalletNFT);
-          setIsValid(true);
-        })
-        .catch(() => {
-          setIsValid(false);
-        })
+      .then((response: any) => {
+        setNftState(response.data as WalletNFT);
+        setIsValid(true);
+      })
+      .catch(() => {
+        setIsValid(false);
+      });
   }, [userId]);
 
- 
   useEffect(() => {
-    fetch()
+    fetch();
   }, [fetch]);
 
-
-
-  console.log(searchState)
-  function getSearchValue(input:string){
-      setSearchState(input);
-      console.log(searchState)
+  function getSearchValue(input: string) {
+    setSearchState(input);
   }
-   
+
   return (
     <div>
       <NavBar />
       {isValid ? (
         <div>
           <PersonalBody />
-          <PersonalFilterBar amount={nftState?.ownedNfts.length} onSearchChange={getSearchValue} />
-          <PersonalFilterAndNFTS nft={nftState} searchState={searchState}/>
+          <PersonalFilterBar
+            amount={
+              searchState === ""
+                ? nftState?.ownedNfts.length
+                : nftState?.ownedNfts.filter((e: any) => {
+                    return e.title
+                      .toLowerCase()
+                      .includes(searchState.toLowerCase());
+                  }).length
+            }
+            onSearchChange={getSearchValue}
+          />
+          <PersonalFilterAndNFTS nft={nftState} searchState={searchState} />
         </div>
       ) : (
         <div>
