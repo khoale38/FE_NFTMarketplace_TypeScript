@@ -11,9 +11,9 @@ import OnErrorPage from "pages/OnError/onErrorPage";
 const PersonalPage = () => {
   const { userId } = useParams();
   let [isValid, setIsValid] = useState<Boolean>(false);
-  let [nftState, setNftState] = useState<WalletNFT>();
+  let [nftState, setNftState] = useState<WalletNFT|any>();
   let Error: string = "No User Found";
-
+  let [searchState,setSearchState] =useState<string>("");
 
   const fetch = useCallback(() => {
     GetNFTInfomation.findNFTWithAddress(userId!)
@@ -34,6 +34,11 @@ const PersonalPage = () => {
 
 
 
+  console.log(searchState)
+  function getSearchValue(input:string){
+      setSearchState(input);
+      console.log(searchState)
+  }
    
   return (
     <div>
@@ -41,8 +46,8 @@ const PersonalPage = () => {
       {isValid ? (
         <div>
           <PersonalBody />
-          <PersonalFilterBar />
-          <PersonalFilterAndNFTS nft={nftState} />
+          <PersonalFilterBar amount={nftState?.ownedNfts.length} onSearchChange={getSearchValue} />
+          <PersonalFilterAndNFTS nft={nftState} searchState={searchState}/>
         </div>
       ) : (
         <div>
