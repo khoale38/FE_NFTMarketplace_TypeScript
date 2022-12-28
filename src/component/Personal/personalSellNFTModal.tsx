@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import popcat from "../../asset/popcat.jpg";
 import close from "../../asset/close1.svg";
 import Box from "@mui/material/Box";
 import "../../styles/pages/Personal/personalNFT.scss";
 import PersonalSellNFTModalDurationDropDown from "./personalSellNFTModalDurationDropDown";
-const personalSellNFTModal = (props: any) => {
+import ListingNFT from "service/ListingApi";
+import Web3Modal from "web3modal";
+import { getEmitHelpers } from "typescript";
+import { ethers } from "ethers";
+import minAbiERC721 from "../../config/abi/mint_abi_erc721.json";
+import { CHAIN_ADDRESSES } from "config/address";
+
+const PersonalSellNFTModal = (props: any) => {
+  const [basePrice, setBasePrice] = React.useState(0);
+  const [contractProp, setContractProp] = React.useState({ address: '', name: '', symbol: '', tokenType: ''});
+  const [tokenId, setTokenId] = React.useState(null);
+
+  useEffect(() => {
+    setContractProp(props.contract);
+  }, [props.contract]);
+
+  useEffect(() => {
+    setTokenId(props.tokenId);
+  }, [props.tokenId]);
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -14,12 +33,30 @@ const personalSellNFTModal = (props: any) => {
     width: "auto",
     bgcolor: "background.paper",
     borderRadius: 6,
-
     p: 4,
   };
 
-  const handleSale = () => {
-    
+  const handleSale = async () => {
+    const web3modal = new Web3Modal();
+    const connection = await web3modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+
+    console.log(contractProp.address);
+    let contract = new ethers.Contract(
+      contractProp.address,
+      minAbiERC721,
+      signer
+    )
+
+    try {
+      let transaction = await contract.approve(CHAIN_ADDRESSES.goerli.ExchangeContractAddress, tokenId);
+      await transaction.wait();
+      alert("Buy token successfully");
+    } catch(e) {
+      console.log(e);
+      alert(e);
+    }
   }
 
   return (
@@ -86,6 +123,7 @@ const personalSellNFTModal = (props: any) => {
                     type="text"
                     placeholder="Input a price"
                     className="form-control personal-sell-modal-text personal-modal-textfield "
+                    onChange={(e) => setBasePrice(Number(e.target.value))}
                   />
                   <div className="dropdown-center personal-sell-modal-text">
                     <button
@@ -155,4 +193,4 @@ const personalSellNFTModal = (props: any) => {
   );
 };
 
-export default personalSellNFTModal;
+export default PersonalSellNFTModal;
