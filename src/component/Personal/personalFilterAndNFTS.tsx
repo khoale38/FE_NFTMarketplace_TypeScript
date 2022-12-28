@@ -37,6 +37,7 @@ const PersonalFilterAndNFTS = (props: any) => {
               return (
                 <div className="col-xl-3 col-lg-4 col-md-6 py-3 ">
                   <PersonalNFT
+                    findingAddress={props.address}
                     contract={item.contract}
                     tokenId={item.tokenId}
                     tokenType={item.tokenType}

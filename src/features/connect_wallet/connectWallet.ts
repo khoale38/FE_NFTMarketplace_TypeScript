@@ -42,4 +42,9 @@ const accountReducer = (state = initialState, action: any) => {
     }
 }
 
+
+export const selectAccount = (state: RootState) => state.account.account;
+
+
+
 export default accountReducer;

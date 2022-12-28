@@ -45,7 +45,6 @@ const PersonalPage = () => {
 
   useEffect(() => {
     fetch();
-    console.log(1)
   }, [fetch]);
 
   useEffect(() => {
@@ -63,6 +62,7 @@ const PersonalPage = () => {
             onSearchChange={getSearchValue}
           />
           <PersonalFilterAndNFTS
+            address={userId}
             ownNft={ownNftState}
             searchState={searchState}
           />
