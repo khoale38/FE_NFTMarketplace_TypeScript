@@ -49,7 +49,7 @@ const PersonalNFT = (props: OwnedNft) => {
           </div>
         </div>
       </div>
-      <PersonalSellNFTModal open={open} handleClose={handleClose} />
+      <PersonalSellNFTModal contract={props.contract} tokenId={props.tokenId} open={open} handleClose={handleClose} />
     </div>
   );
 };
