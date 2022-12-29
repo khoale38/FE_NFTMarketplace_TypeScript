@@ -14,7 +14,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
-        <Route path="/collection" element={<CollectionPage />} />
+        <Route path="/collection/:collectionId" element={<CollectionPage />} />
         <Route path="/mint" element={<MintPage />} />
         <Route path="/personal/:userId" element={<PersonalPage />} />
         <Route path='*' element={<RedirectPage/>}></Route>
