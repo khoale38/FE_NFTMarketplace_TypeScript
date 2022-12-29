@@ -19,7 +19,12 @@ class ListingNFT {
             sellSig,
             salt
         });
+
+ 
     }
+    getAllListing(){
+        return axios.get('marketplace/listing')
+    };
 }
 
 export default new ListingNFT();

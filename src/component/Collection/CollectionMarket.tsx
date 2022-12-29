@@ -13,7 +13,7 @@ const CollectionMarket = (props: any) => {
       <div>
         <CollectionCategory />
         <FilterBar onSearchChange={props.searchState} amount={props.amount} />
-        <CollectionFilterAndNFTS NFTs={props.NFTs} />
+        <CollectionFilterAndNFTS NFTs={props.NFTs} sellingList={props.sellingList} collectionId={props.collectionId}/>
       </div>
     </div>
   );

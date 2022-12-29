@@ -7,9 +7,13 @@ import GetCollectionInfo from "service/CollectionApi";
 import { AxiosError } from "axios";
 import { Collection, Nft } from "model/Collection";
 import OnErrorPage from "pages/OnError/onErrorPage";
+import ListingNFT from "service/ListingApi";
+import { SellingNFT } from "model/temp";
+
 const CollectionPage = () => {
   let [isValid, setIsValid] = useState<Boolean>(false);
   let [collectionState, setCollectionState] = useState<Collection>();
+  let [sellingListState, setSellingListState] = useState<SellingNFT[]>();
   let [ownNftState, setOwnNftState] = useState<Nft[]>();
   let [searchState, setSearchState] = useState<string>("");
   const { collectionId } = useParams();
@@ -26,6 +30,16 @@ const CollectionPage = () => {
         setIsValid(false);
       });
   }, [collectionId]);
+
+  const fetchSellingNFT = useCallback(() => {
+    ListingNFT.getAllListing()
+      .then((response: any) => {
+        setSellingListState(response.data as SellingNFT[]);
+      })
+      .catch((e: AxiosError) => {
+        console.log(e);
+      });
+  }, []);
 
   function getSearchValue(input: string) {
     setSearchState(input);
@@ -45,7 +59,8 @@ const CollectionPage = () => {
 
   useEffect(() => {
     fetch();
-  }, [fetch]);
+    fetchSellingNFT();
+  }, [fetch, fetchSellingNFT]);
 
   useEffect(() => {
     setListNFT();
@@ -61,7 +76,8 @@ const CollectionPage = () => {
             NFTs={ownNftState}
             searchState={getSearchValue}
             amount={ownNftState?.length}
-    
+            sellingList={sellingListState}
+            collectionId={collectionId}
           />
         </div>
       ) : (
