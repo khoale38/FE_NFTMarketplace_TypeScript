@@ -28,18 +28,16 @@
 }
 
 .card-title {
-
-
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  text-overflow: ellipsis !important;
+  overflow: hidden  !important;
+  white-space: nowrap  !important;
 }
 
 .NFT-name {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  font-size: 2.1rem;
+  font-size: 1.8rem !important;
   height: min-content;
   color: black;
 }

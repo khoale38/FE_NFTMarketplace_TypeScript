@@ -1,11 +1,13 @@
-import React from "react";
+import { Nft } from "model/Collection";
+import React, { useEffect, useState } from "react";
 import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss";
 import CollectionFilter from "../CollectionFilter/collectionFilter";
 import CollectionNFT from "../NFT/collectionNFT";
-const CollectionFilterAndNFTS = () => {
+const CollectionFilterAndNFTS = (props: any) => {
   //getting window size
   const [width, setWidth] = React.useState(window.innerWidth);
   const [height, setHeight] = React.useState(window.innerHeight);
+  let [nftState, setNftState] = useState<Nft[]>();
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
@@ -15,7 +17,14 @@ const CollectionFilterAndNFTS = () => {
     return () => window.removeEventListener("resize", updateWidthAndHeight);
   });
 
-  const NFTs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  useEffect(() => {
+    setNftState(props.NFTs);
+  }, [props]);
+
+
+
+
+
 
   return (
     <div className="container-fluid">
@@ -26,9 +35,19 @@ const CollectionFilterAndNFTS = () => {
         </div>
         <div className="col-lg-10 ">
           <div className="row">
-            {NFTs.map((item) => (
+            {nftState?.map((item :Nft) => (
               <div className="col-xl-3 col-lg-4 col-md-6 py-3  ">
-                <CollectionNFT />
+                <CollectionNFT 
+                  contract={item.contract}
+                  tokenId={item.tokenId}
+                  tokenType={item.tokenType}
+                  title={item.title}
+                  description={item.description}
+                  timeLastUpdated={item.timeLastUpdated}
+                  rawMetadata={item.rawMetadata}
+                  media={item.media} 
+                  tokenUri={item.tokenUri}                
+                 />
               </div>
             ))}
           </div>
@@ -49,7 +68,7 @@ export const SmallFilter = () => {
         aria-expanded="false"
         data-bs-auto-close="false"
       >
-      Filter
+        Filter
       </button>
       <div className="dropdown-menu mt-2 position-relative filter-container px-3">
         <CollectionFilter />
