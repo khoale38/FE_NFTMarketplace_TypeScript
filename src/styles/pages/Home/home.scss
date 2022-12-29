@@ -29,18 +29,20 @@
 
   .custom-dropdown-menu {
     margin: 0 !important;
+    margin-top: 1px !important;
     min-width: min-content !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     top: 100% !important;
   }
 
-  .custom-dropdown:hover .custom-dropdown-menu {
-    display: block;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: 100% !important;
-  }
+  // .custom-dropdown:hover .custom-dropdown-menu {
+  //   margin-top: 1px !important;
+  //   display: block;
+  //   left: 50% !important;
+  //   transform: translateX(-50%) !important;
+  //   top: 100% !important;
+  // }
 
   .navbar li {
     margin-left: 1em;
@@ -64,6 +66,7 @@
     font-size: 1.2rem !important;
   }
   .custom-dropdown-menu {
+    margin-top: 1px !important;
     min-width: 100% !important  ;
   }
 
@@ -74,8 +77,6 @@
     display: flex;
     flex-direction: column;
   }
-
-
 }
 .loginBtn {
   width: 100% !important;
@@ -96,8 +97,6 @@
   border: none;
   width: 100%;
   outline: 0;
-  
-
 }
 
 .logo {
@@ -122,4 +121,3 @@
 .right {
   display: none;
 }
-

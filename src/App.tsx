@@ -12,10 +12,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Redux />} />
 
-        <Route path="/home" element={<Home />} />
-        <Route path="/collection" element={<CollectionPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/collection/:collectionId" element={<CollectionPage />} />
         <Route path="/mint" element={<MintPage />} />
         <Route path="/personal/:userId" element={<PersonalPage />} />
         <Route path='*' element={<RedirectPage/>}></Route>

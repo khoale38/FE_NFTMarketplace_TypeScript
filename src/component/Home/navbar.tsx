@@ -1,21 +1,48 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import logo from "../../asset/logo.svg";
 import { useState } from "react";
 import "../../styles/pages/Home/home.scss";
 import searchIcon from "../../asset/search.svg";
 import LoggedUI from "../../component/Home/logged";
 import { useNavigate, useParams, createSearchParams } from "react-router-dom";
-import path from "path";
+import { useAppDispatch, useAppSelector } from "app/hooks";
+import { selectAccount } from "features/connect_wallet/connectWallet";
+import { connect } from "features/connect_wallet/connectWalletAPI";
 
 const Navbar = () => {
-  const [logged, setlogged] = useState<boolean | null>(true);
+  const log = useAppSelector(selectAccount);
+  const [logged, setlogged] = useState<boolean>(false);
   const navigate = useNavigate();
   let { userId } = useParams();
+  const dispatch = useAppDispatch();
+
+  const fetch = useCallback(() => {
+      dispatch(connect())
+    }, [])
+  
+    useEffect(() => {
+      fetch();
+    }, [fetch])
+
+  useEffect(() => {
+
+    if (log == null) {
+      setlogged(false);
+    } else setlogged(true);
+  }, [log]);
+
   return (
-    <nav className="navbar shadow navbar-expand-lg bg-light  ">
+    <nav className="navbar shadow navbar-expand-lg bg-light sticky-top ">
       <div className="container-fluid">
-        <img src={logo} className="logo" alt="logo" />
+        <img
+          src={logo}
+          className="logo"
+          alt="logo"
+          onClick={() => {
+            navigate(`/`);
+          }}
+        />
         <button
           className="navbar-toggler collapsed"
           type="button"
@@ -35,7 +62,7 @@ const Navbar = () => {
             <div className="form-control searchBar ">
               <img src={searchIcon} alt="search" />
               <input
-              key="address"
+                key="address"
                 placeholder="Search"
                 className="searchInput"
                 onKeyDown={(e) => {
@@ -44,14 +71,14 @@ const Navbar = () => {
                     e.preventDefault();
                     e.stopPropagation();
                     navigate(`/personal/${userId}`);
-                    e.currentTarget.value=""
-                    e.currentTarget.blur()
+                    e.currentTarget.value = "";
+                    e.currentTarget.blur();
                   }
                 }}
               />
             </div>
 
-            <li className="nav-item">Explore</li>
+            {/* <li className="nav-item">Explore</li>
 
             <li className="nav-item dropdown  custom-dropdown">
               <a
@@ -80,13 +107,26 @@ const Navbar = () => {
               </ul>
             </li>
 
-            <li className="nav-item">Resources</li>
-            <li className="nav-item">Create</li>
+            <li className="nav-item">Resources</li> */}
+            <li
+              className="nav-item"
+              onClick={() => {
+                navigate(`/mint`);
+              }}
+            >
+              Create
+            </li>
             <li className="nav-item">
               {logged ? (
                 <LoggedUI />
               ) : (
-                <button type="button" className="btn btn-dark loginBtn">
+                <button
+                  type="button"
+                  className="btn btn-dark loginBtn"
+                  onClick={() => {
+                    dispatch(connect());
+                  }}
+                >
                   Login
                 </button>
               )}
