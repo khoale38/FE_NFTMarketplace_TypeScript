@@ -7,18 +7,18 @@ import { useAppDispatch, useAppSelector } from "app/hooks";
 import { connect } from '../../features/connect_wallet/connectWalletAPI';
 
 const Home: React.FC = () => {
-  const blockchain = useAppSelector((state) => state.account);
-  const dispatch = useAppDispatch();
+  // const blockchain = useAppSelector((state) => state.account);
+  // const dispatch = useAppDispatch();
 
-  console.log(blockchain.account);
+  // console.log(blockchain.account);
 
-  const fetch = useCallback(() => {
-    dispatch(connect())
-  }, [])
+  // const fetch = useCallback(() => {
+  //   dispatch(connect())
+  // }, [])
 
-  useEffect(() => {
-    fetch();
-  }, [fetch])
+  // useEffect(() => {
+  //   fetch();
+  // }, [fetch])
 
   return (
     <div>

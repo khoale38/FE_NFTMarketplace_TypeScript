@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import logo from "../../asset/logo.svg";
 import { useState } from "react";
 import "../../styles/pages/Home/home.scss";
@@ -16,6 +16,15 @@ const Navbar = () => {
   const navigate = useNavigate();
   let { userId } = useParams();
   const dispatch = useAppDispatch();
+
+  const fetch = useCallback(() => {
+      dispatch(connect())
+    }, [])
+  
+    useEffect(() => {
+      fetch();
+    }, [fetch])
+
   useEffect(() => {
 
     if (log == null) {
@@ -24,7 +33,7 @@ const Navbar = () => {
   }, [log]);
 
   return (
-    <nav className="navbar shadow navbar-expand-lg bg-light  ">
+    <nav className="navbar shadow navbar-expand-lg bg-light sticky-top ">
       <div className="container-fluid">
         <img
           src={logo}
