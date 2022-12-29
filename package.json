@@ -21,6 +21,7 @@
     "bootstrap-icons": "^1.9.1",
     "bootstrap-select": "^1.13.18",
     "ethers": "^5.7.2",
+    "hardhat-deploy": "^0.11.22",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",

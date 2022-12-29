@@ -7,15 +7,19 @@ import "../../styles/pages/Personal/personalNFT.scss";
 import PersonalSellNFTModalDurationDropDown from "./personalSellNFTModalDurationDropDown";
 import ListingNFT from "service/ListingApi";
 import Web3Modal from "web3modal";
+import Web3 from "web3";
 import { getEmitHelpers } from "typescript";
-import { ethers } from "ethers";
+import { ethers, constants } from "ethers";
 import minAbiERC721 from "../../config/abi/mint_abi_erc721.json";
 import { CHAIN_ADDRESSES } from "config/address";
+import { MockERC20, MockERC721 } from "utils/typechain-types";
+import { hashOrder, makeOrder } from "utils/utils";
+import { REPLACEMENT_PATTERN } from "config/replacement_pattern";
 
 const PersonalSellNFTModal = (props: any) => {
   const [basePrice, setBasePrice] = React.useState(0);
   const [contractProp, setContractProp] = React.useState({ address: '', name: '', symbol: '', tokenType: ''});
-  const [tokenId, setTokenId] = React.useState(null);
+  const [tokenId, setTokenId] = React.useState(-1);
 
   useEffect(() => {
     setContractProp(props.contract);
@@ -41,22 +45,54 @@ const PersonalSellNFTModal = (props: any) => {
     const connection = await web3modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
+    const signerAddress = await signer.getAddress();
 
-    console.log(contractProp.address);
-    let contract = new ethers.Contract(
+    const web3 = new Web3(connection);
+
+    let contract: MockERC721 = new ethers.Contract(
       contractProp.address,
       minAbiERC721,
       signer
+    ) as MockERC721
+
+    // try {
+    //   let transaction = await contract.approve(CHAIN_ADDRESSES.goerli.ExchangeContractAddress, tokenId);
+    //   await transaction.wait();
+    // } catch(e) {
+    //   console.log(e);
+    //   alert(e);
+    // }
+
+    const sellCallData = contract.interface.encodeFunctionData('transferFrom', [
+      signerAddress,
+      constants.AddressZero,
+      tokenId
+    ]);
+
+    const sell = makeOrder(
+      CHAIN_ADDRESSES.goerli.ExchangeContractAddress,
+      true,
+      signerAddress,
+      contract.address,
+      sellCallData,
+      REPLACEMENT_PATTERN.replacementPatternFrom
     )
 
-    try {
-      let transaction = await contract.approve(CHAIN_ADDRESSES.goerli.ExchangeContractAddress, tokenId);
-      await transaction.wait();
-      alert("Buy token successfully");
-    } catch(e) {
-      console.log(e);
-      alert(e);
-    }
+    sell.maker = signerAddress;
+    sell.taker = constants.AddressZero;
+    sell.side = 1;
+    sell.basePrice = basePrice;
+    sell.paymentToken = CHAIN_ADDRESSES.goerli.MockERC20ContractAddress;
+    sell.listingTime = 0;
+    sell.expirationTime = 0;
+    sell.feeMethod = 1;
+
+    const sellHash = hashOrder(sell);
+    const sellSign = await web3.eth.sign(sellHash, signerAddress);
+    console.log(sellSign);
+
+    await ListingNFT.listingNFT(sell.maker, sell.taker, sell.feeRecipient, sellCallData, tokenId, sell.target, basePrice, sell.paymentToken, sell.listingTime, sell.expirationTime, sellSign, sell.salt);
+    alert("Listing successfully")
   }
 
   return (
