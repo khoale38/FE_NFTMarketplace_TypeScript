@@ -1,4 +1,6 @@
+import { template } from "@babel/core";
 import { Nft } from "model/Collection";
+import { SellingNFT } from "model/temp";
 import React, { useEffect, useState } from "react";
 import "../../../styles/pages/Collection/collectionFilterAndNFTS.scss";
 import CollectionFilter from "../CollectionFilter/collectionFilter";
@@ -8,6 +10,7 @@ const CollectionFilterAndNFTS = (props: any) => {
   const [width, setWidth] = React.useState(window.innerWidth);
   const [height, setHeight] = React.useState(window.innerHeight);
   let [nftState, setNftState] = useState<Nft[]>();
+  let [sellingListState, setSellingListState] = useState<SellingNFT[]>();
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
@@ -18,8 +21,48 @@ const CollectionFilterAndNFTS = (props: any) => {
   });
 
   useEffect(() => {
+    setSellingListState(props.sellingList);
+
     setNftState(props.NFTs);
   }, [props]);
+
+  function checkSell(item: Nft): boolean {
+    let temp: boolean = false;
+    sellingListState?.forEach((e) => {
+      if (e.target != props.collectionId) {
+        temp = false;
+        return;
+      } else {
+        sellingListState?.forEach((e) => {
+          if (e.tokenId.toString() === item.tokenId) {
+            temp = true;
+            return;
+          } else {
+            temp = false;
+          }
+        });
+      }
+    });
+    return temp;
+  }
+  function getPrice(item: Nft): number {
+    let temp: number = 0;
+    sellingListState?.forEach((e) => {
+      if (e.target != props.collectionId) {
+        return;
+      } else {
+        sellingListState?.forEach((e) => {
+          if (e.tokenId.toString() === item.tokenId) {
+            temp = e.basePrice;
+            return;
+          } else {
+            return;
+          }
+        });
+      }
+    });
+    return temp;
+  }
 
   return (
     <div className="container-fluid">
@@ -33,6 +76,8 @@ const CollectionFilterAndNFTS = (props: any) => {
             {nftState?.map((item: Nft) => (
               <div className="col-xl-3 col-lg-4 col-md-6 py-3  ">
                 <CollectionNFT
+                  price={getPrice(item)}
+                  isSell={checkSell(item)}
                   contract={item.contract}
                   tokenId={item.tokenId}
                   tokenType={item.tokenType}
