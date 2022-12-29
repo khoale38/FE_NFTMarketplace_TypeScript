@@ -21,11 +21,6 @@ const CollectionFilterAndNFTS = (props: any) => {
     setNftState(props.NFTs);
   }, [props]);
 
-
-
-
-
-
   return (
     <div className="container-fluid">
       <div className="row px-5">
@@ -35,9 +30,9 @@ const CollectionFilterAndNFTS = (props: any) => {
         </div>
         <div className="col-lg-10 ">
           <div className="row">
-            {nftState?.map((item :Nft) => (
+            {nftState?.map((item: Nft) => (
               <div className="col-xl-3 col-lg-4 col-md-6 py-3  ">
-                <CollectionNFT 
+                <CollectionNFT
                   contract={item.contract}
                   tokenId={item.tokenId}
                   tokenType={item.tokenType}
@@ -45,9 +40,9 @@ const CollectionFilterAndNFTS = (props: any) => {
                   description={item.description}
                   timeLastUpdated={item.timeLastUpdated}
                   rawMetadata={item.rawMetadata}
-                  media={item.media} 
-                  tokenUri={item.tokenUri}                
-                 />
+                  media={item.media}
+                  tokenUri={item.tokenUri}
+                />
               </div>
             ))}
           </div>
