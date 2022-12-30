@@ -55,13 +55,13 @@ const PersonalSellNFTModal = (props: any) => {
       signer
     ) as MockERC721
 
-    // try {
-    //   let transaction = await contract.approve(CHAIN_ADDRESSES.goerli.ExchangeContractAddress, tokenId);
-    //   await transaction.wait();
-    // } catch(e) {
-    //   console.log(e);
-    //   alert(e);
-    // }
+    try {
+      let transaction = await contract.approve(CHAIN_ADDRESSES.goerli.ExchangeContractAddress, tokenId);
+      await transaction.wait();
+    } catch(e) {
+      console.log(e);
+      alert(e);
+    }
 
     const sellCallData = contract.interface.encodeFunctionData('transferFrom', [
       signerAddress,
@@ -75,7 +75,7 @@ const PersonalSellNFTModal = (props: any) => {
       signerAddress,
       contract.address,
       sellCallData,
-      REPLACEMENT_PATTERN.replacementPatternFrom
+      REPLACEMENT_PATTERN.replacementPatternTo
     )
 
     sell.maker = signerAddress;
@@ -91,7 +91,7 @@ const PersonalSellNFTModal = (props: any) => {
     const sellSign = await web3.eth.sign(sellHash, signerAddress);
     console.log(sellSign);
 
-    await ListingNFT.listingNFT(sell.maker, sell.taker, sell.feeRecipient, sellCallData, tokenId, sell.target, basePrice, sell.paymentToken, sell.listingTime, sell.expirationTime, sellSign, sell.salt);
+    await ListingNFT.listingNFT(sell.maker, sell.taker, sell.feeRecipient, sellCallData, tokenId, sell.target, sell.basePrice, sell.paymentToken, sell.listingTime, sell.expirationTime, sellSign, sell.salt);
     alert("Listing successfully")
   }
 

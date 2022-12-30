@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "@mui/material/Modal";
 
 import close from "../../../asset/close1.svg";
@@ -8,7 +8,148 @@ import Box from "@mui/material/Box";
 import Wallet from "../../../asset/wallet.svg";
 import CollectionModalBuyItems from "./collectionBuyModalComponent";
 import CollectionBuyModalComponentRadio from "./collectionBuyModalComponentRadio";
+import { ethers, constants, BigNumber } from "ethers";
+import Web3Modal from "web3modal";
+import { MockERC721 } from "utils/typechain-types";
+import minAbiERC721 from "../../../config/abi/mint_abi_erc721.json";
+import { makeOrder, hashOrder } from "utils/utils";
+import { CHAIN_ADDRESSES } from "config/address";
+import { REPLACEMENT_PATTERN } from "config/replacement_pattern";
+import exchangeABI from "config/abi/WyvernExchange.json";
+import tokenABI from "config/abi/MockERC20.json";
+import Web3 from "web3";
+
 const CollectionBuyModal = (props: any) => {
+  const [contractProp, setContractProp] = React.useState({ contract: { address: ""}, tokenId: -1, price: 0, listingData: [{sellSign: "", makerAddress: "", takerAddress: "", feeRecipient: "", target: "", paymentToken: "", basePrice: 1, listingTime: 0, expirationTime: 0, salt: 0, callData: ""}]});
+
+  useEffect(() => {
+    setContractProp(props.contract);
+  }, [props.contract]);
+
+  const handleBuy = async () => {
+    console.log(contractProp.listingData[0]);
+    const web3modal = new Web3Modal();
+    const connection = await web3modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+    const signerAddress = await signer.getAddress();
+
+    const web3 = new Web3(connection);
+
+    let wyvernExchangeContract = new ethers.Contract(
+      CHAIN_ADDRESSES.goerli.ExchangeContractAddress, 
+      exchangeABI.abi, 
+      signer
+    );
+
+    let tokenContract = new ethers.Contract(
+      CHAIN_ADDRESSES.goerli.MockERC20ContractAddress, 
+      tokenABI.abi, 
+      signer
+    );
+    let approveTransaction = await tokenContract.approve(CHAIN_ADDRESSES.goerli.TokenTransferProxyContractAddress, 1000);
+    await approveTransaction.wait();
+
+    let contract: MockERC721 = new ethers.Contract(
+      contractProp.contract.address,
+      minAbiERC721,
+      signer
+    ) as MockERC721
+
+        let overrides = {
+            gasLimit: 2100000,
+            gasPrice: 8000000000
+        };
+
+    const buyCallData = contract.interface.encodeFunctionData('transferFrom', [
+      constants.AddressZero,
+      signerAddress,
+      contractProp.tokenId
+    ]);
+    
+    const buy = makeOrder(
+      CHAIN_ADDRESSES.goerli.ExchangeContractAddress,
+      false,
+      signerAddress,
+      contract.address,
+      buyCallData,
+      REPLACEMENT_PATTERN.replacementPatternFrom,
+  )
+  buy.maker = signerAddress;
+  buy.taker = "0x5B9aAEf5292B5D38C30Bb5B0CA65D3960E158b66";
+  buy.target = contract.address;
+  buy.basePrice = contractProp.price;
+  buy.paymentToken = CHAIN_ADDRESSES.goerli.MockERC20ContractAddress;
+  buy.listingTime = 0;
+  buy.expirationTime = 0;
+  buy.feeMethod = 1;
+
+  const buyHash = hashOrder(buy);
+  const buySig = await web3.eth.sign(buyHash, signerAddress);
+  const splitBuySig = ethers.utils.splitSignature(buySig);
+  const splitSellSig = ethers.utils.splitSignature(contractProp.listingData[0].sellSign);
+  let transaction = await
+                wyvernExchangeContract.atomicMatch_(
+                    [
+                        buy.exchange,
+                        buy.maker,
+                        buy.taker,
+                        buy.feeRecipient,
+                        buy.target,
+                        buy.staticTarget,
+                        buy.paymentToken,
+                        wyvernExchangeContract.address,
+                        contractProp.listingData[0].makerAddress,
+                        contractProp.listingData[0].takerAddress,
+                        contractProp.listingData[0].feeRecipient,
+                        contractProp.listingData[0].target,
+                        '0x0000000000000000000000000000000000000000',
+                        contractProp.listingData[0].paymentToken,
+                    ],
+                    [
+                        buy.makerRelayerFee,
+                        buy.takerRelayerFee,
+                        buy.makerProtocolFee,
+                        buy.takerProtocolFee,
+                        buy.basePrice,
+                        buy.extra,
+                        buy.listingTime,
+                        buy.expirationTime,
+                        buy.salt,
+                        BigNumber.from(0),
+                        BigNumber.from(0),
+                        BigNumber.from(0),
+                        BigNumber.from(0),
+                        contractProp.listingData[0].basePrice,
+                        0,
+                        contractProp.listingData[0].listingTime,
+                        contractProp.listingData[0].expirationTime,
+                        contractProp.listingData[0].salt,
+                    ],
+                    [
+                        buy.feeMethod,
+                        buy.side,
+                        buy.saleKind,
+                        buy.howToCall,
+                        1,
+                        1,
+                        0,
+                        0,
+                    ],
+                    buy._calldata,
+                    contractProp.listingData[0].callData,
+                    buy.replacementPattern,
+                    REPLACEMENT_PATTERN.replacementPatternTo,
+                    buy.staticExtradata,
+                    '0x',
+                    [splitBuySig.v, splitSellSig.v],
+                    [splitBuySig.r, splitBuySig.s, splitSellSig.r, splitSellSig.s, constants.HashZero],
+                    overrides
+                );
+            await transaction.wait();
+            alert("Buy successfully");
+  }
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -87,6 +228,7 @@ const CollectionBuyModal = (props: any) => {
             <button
               type="button"
               className="btn btn-primary container-fluid collection-save-btn py-2 "
+              onClick={handleBuy}
             >
               Complete purchase
             </button>

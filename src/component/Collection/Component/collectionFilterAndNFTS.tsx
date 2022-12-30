@@ -76,6 +76,7 @@ const CollectionFilterAndNFTS = (props: any) => {
             {nftState?.map((item: Nft) => (
               <div className="col-xl-3 col-lg-4 col-md-6 py-3  ">
                 <CollectionNFT
+                  listingData={sellingListState}
                   price={getPrice(item)}
                   isSell={checkSell(item)}
                   contract={item.contract}
