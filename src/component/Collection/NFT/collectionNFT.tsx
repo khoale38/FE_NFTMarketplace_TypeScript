@@ -12,8 +12,6 @@ const CollectionNFT = (props: Nft | any) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log(props.price);
-
   return (
     <div className="layer-container">
       <div
@@ -52,7 +50,7 @@ const CollectionNFT = (props: Nft | any) => {
               Buy Now
             </div>
           </div>
-          <CollectionBuyModal open={open} handleClose={handleClose} />
+          <CollectionBuyModal contract={props} open={open} handleClose={handleClose} />
         </div>
       ) : (
         <div></div>
