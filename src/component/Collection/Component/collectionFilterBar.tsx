@@ -65,7 +65,7 @@ const filterBar = (props: any) => {
       <div className=" align-items-center remove-updated-time">
         <img src={Refesh} alt="refesh" />
         <div className="same-line-text updated-time  ms-2  me-3">
-          Updated 69m ago
+          Updated {props.lastUpdatedTime}
         </div>
         <div className="same-line-text  mx-3">{props.amount} Items</div>
       </div>
