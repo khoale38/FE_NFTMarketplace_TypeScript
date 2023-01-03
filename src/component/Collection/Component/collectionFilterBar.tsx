@@ -7,7 +7,7 @@ const filterBar = (props: any) => {
     <div className="d-flex  filterbar mx-5 my-3">
       <div className="d-flex flex-fill">
         <div className="form-control searchBar ">
-          <img src={searchIcon} alt='search'/>
+          <img src={searchIcon} alt="search" />
           <input
             placeholder="Search"
             className="searchInput px-2"
@@ -29,30 +29,41 @@ const filterBar = (props: any) => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Price low to high
+            {!props.filterState ? "Newest to Oldest" : "Oldest to Newest"}
           </button>
           <ul className="dropdown-menu custom-dropdown-menu filter-price px-2 my-1">
             <li>
               <div
                 className="dropdown-item custom-dropdown-item filter-text text-left"
-             
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  props.onDateFilterChange(false);
+                }}
               >
-                Price low to high
+                Newest to Oldest
               </div>
             </li>
             <li>
               <hr className="dropdown-divider" />
             </li>
             <li>
-              <div className="dropdown-item custom-dropdown-item filter-text text-left">
-                Price high to low
+              <div
+                className="dropdown-item custom-dropdown-item filter-text text-left"
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  props.onDateFilterChange(true);
+                }}
+              >
+                Oldest to Newest
               </div>
             </li>
           </ul>
         </div>
       </div>
       <div className=" align-items-center remove-updated-time">
-        <img src={Refesh}  alt='refesh'/>
+        <img src={Refesh} alt="refesh" />
         <div className="same-line-text updated-time  ms-2  me-3">
           Updated 69m ago
         </div>

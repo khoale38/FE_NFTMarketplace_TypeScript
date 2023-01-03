@@ -16,6 +16,7 @@ const CollectionPage = () => {
   let [sellingListState, setSellingListState] = useState<SellingNFT[]>();
   let [ownNftState, setOwnNftState] = useState<Nft[]>();
   let [searchState, setSearchState] = useState<string>("");
+  let [dateFilterState, setDateFilterState] = useState<boolean>(false);
   const { collectionId } = useParams();
   let Error: string = "No Collection Found";
 
@@ -66,6 +67,8 @@ const CollectionPage = () => {
     setListNFT();
   }, [setListNFT]);
 
+
+
   return (
     <div>
       <NavBar />
@@ -73,6 +76,8 @@ const CollectionPage = () => {
         <div>
           <DisplayPersonal />
           <CollectionMarket
+            setFilterState={setDateFilterState}
+            filterState={dateFilterState}
             NFTs={ownNftState}
             searchState={getSearchValue}
             amount={ownNftState?.length}

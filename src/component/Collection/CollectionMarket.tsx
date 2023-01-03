@@ -5,15 +5,15 @@ import FilterBar from "./Component/collectionFilterBar";
 
 
 const CollectionMarket = (props: any) => {
-
+   
 
   return (
     // these child component can be found in Component  folder
     <div>
       <div>
         <CollectionCategory />
-        <FilterBar onSearchChange={props.searchState} amount={props.amount} />
-        <CollectionFilterAndNFTS NFTs={props.NFTs} sellingList={props.sellingList} collectionId={props.collectionId}/>
+        <FilterBar onSearchChange={props.searchState} amount={props.amount} onDateFilterChange={props.setFilterState} filterState={props.filterState}/>
+        <CollectionFilterAndNFTS NFTs={props.NFTs} sellingList={props.sellingList} collectionId={props.collectionId} filterState={props.filterState}/>
       </div>
     </div>
   );
