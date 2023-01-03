@@ -16,6 +16,8 @@ const CollectionPage = () => {
   let [sellingListState, setSellingListState] = useState<SellingNFT[]>();
   let [ownNftState, setOwnNftState] = useState<Nft[]>();
   let [searchState, setSearchState] = useState<string>("");
+  let [dateFilterState, setDateFilterState] = useState<boolean>(false);
+  let [updatedTime, setUpdatedTime] = useState<String>();
   const { collectionId } = useParams();
   let Error: string = "No Collection Found";
 
@@ -57,10 +59,24 @@ const CollectionPage = () => {
     }
   }, [collectionState?.nfts, searchState]);
 
+  const getLastestUpdate = useCallback(() => {
+    let result = collectionState?.nfts.reduce((a, b) =>
+      a.timeLastUpdated > b.timeLastUpdated ? a : b
+    ).timeLastUpdated;
+    let temp = new Date(result!);
+    var month = temp.getUTCMonth() + 1; //months from 1-12
+    var day = temp.getUTCDate();
+    var year = temp.getUTCFullYear();
+
+    const newdate = day + "/" + month + "/" + year;
+    setUpdatedTime(newdate)
+  }, [collectionState?.nfts]);
+
   useEffect(() => {
     fetch();
     fetchSellingNFT();
-  }, [fetch, fetchSellingNFT]);
+    getLastestUpdate();
+  }, [fetch, fetchSellingNFT, getLastestUpdate]);
 
   useEffect(() => {
     setListNFT();
@@ -73,6 +89,9 @@ const CollectionPage = () => {
         <div>
           <DisplayPersonal />
           <CollectionMarket
+            lastUpdatedTime={updatedTime}
+            setFilterState={setDateFilterState}
+            filterState={dateFilterState}
             NFTs={ownNftState}
             searchState={getSearchValue}
             amount={ownNftState?.length}

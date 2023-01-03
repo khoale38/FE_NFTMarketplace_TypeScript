@@ -73,24 +73,32 @@ const CollectionFilterAndNFTS = (props: any) => {
         </div>
         <div className="col-lg-10 ">
           <div className="row">
-            {nftState?.map((item: Nft) => (
-              <div className="col-xl-3 col-lg-4 col-md-6 py-3  ">
-                <CollectionNFT
-                  listingData={sellingListState}
-                  price={getPrice(item)}
-                  isSell={checkSell(item)}
-                  contract={item.contract}
-                  tokenId={item.tokenId}
-                  tokenType={item.tokenType}
-                  title={item.title}
-                  description={item.description}
-                  timeLastUpdated={item.timeLastUpdated}
-                  rawMetadata={item.rawMetadata}
-                  media={item.media}
-                  tokenUri={item.tokenUri}
-                />
-              </div>
-            ))}
+            {nftState
+              ?.sort(function (a: any, b: any) {
+                var dateA = new Date(a.timeLastUpdated).getTime();
+                var dateB = new Date(b.timeLastUpdated).getTime();
+                if (props.filterState) {
+                  return dateA > dateB ? 1 : -1;
+                } else return dateA < dateB ? 1 : -1;
+              })
+              .map((item: Nft) => (
+                <div className="col-xl-3 col-lg-4 col-md-6 py-3  ">
+                  <CollectionNFT
+                    listingData={sellingListState}
+                    price={getPrice(item)}
+                    isSell={checkSell(item)}
+                    contract={item.contract}
+                    tokenId={item.tokenId}
+                    tokenType={item.tokenType}
+                    title={item.title}
+                    description={item.description}
+                    timeLastUpdated={item.timeLastUpdated}
+                    rawMetadata={item.rawMetadata}
+                    media={item.media}
+                    tokenUri={item.tokenUri}
+                  />
+                </div>
+              ))}
           </div>
         </div>
       </div>
