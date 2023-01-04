@@ -14,6 +14,9 @@ import { ethers } from "ethers";
 import pinJSONToIPFS from "service/MintAPI";
 import { CHAIN_ADDRESSES } from "config/address";
 import MinABI from "../../config/abi/mint_abi_erc721.json"
+import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "app/hooks";
+import { selectAccount } from "features/connect_wallet/connectWallet";
 
 const description =
   "The description will be included on the item's detail page underneath its image. Markdown syntax is supported.";
@@ -24,12 +27,14 @@ const supply = "The number of items that can be minted. No gas cost to you!";
 const chain1 = { name: "Chain 1", image: avatar };
 const chain2 = { name: "Chain 2", image: avatar2 };
 
-const Mintbody = () => {
+const Mintbody = (props:any) => {
   const [fileUrl, setFileUrl] = React.useState("");
   const [name, setName] = React.useState("");
   const [inputExternalLink, setInputExternalLink] = React.useState("");
   const [inputDescription, setInputDescription] = React.useState("");
   const [inputSupply, setInputSupply] = React.useState("");
+  const navigate = useNavigate();
+  const log = useAppSelector(selectAccount);
 
   const mintImageToBody = (childData: any) => {
     setFileUrl(childData);
@@ -81,7 +86,9 @@ const Mintbody = () => {
       }
   }
 
+  
   const createToken = async (uri: string) => {
+    props.setMintStateCallBack(true);
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
@@ -92,10 +99,10 @@ const Mintbody = () => {
     let contract = new ethers.Contract(CHAIN_ADDRESSES.goerli.NFT, MinABI, signer);
     let transaction = await contract.mint(signerAddr, uri);
     await transaction.wait();
-    alert("Create NFT successfully");
+    props.setMintStateCallBack(false);
+    navigate(`/personal/${log}`);
 }
-
-  return (
+ return (
     <div className="d-flex flex-column  ">
       <div className="mint-min-width align-self-center  jusity-items-between">
    
