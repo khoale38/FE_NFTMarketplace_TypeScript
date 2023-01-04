@@ -11,8 +11,9 @@ interface mintComponent {
   icon: boolean;
   textfield: boolean;
   tooltip: string | null;
+  onChange: (a: string) => void;
 }
-const mintComponent = (props: mintComponent) => {
+const MintComponent = (props: mintComponent) => {
   return (
     <div className=" my-2">
       <div className="d-flex mint-text-style mint-heading2">
@@ -29,17 +30,17 @@ const mintComponent = (props: mintComponent) => {
       </div>
       {!props.textfield ? (
         <form>
-          <textarea placeholder={props.placeholder} maxLength={1000} className="mint-max-width mint-text-field mt-2">
+          <textarea placeholder={props.placeholder} maxLength={1000} className="mint-max-width mint-text-field mt-2" onChange={e => {props.onChange(e.target.value)}}>
             This is the default comment...
           </textarea>
         </form>
       ) : (
         <form>
-          <input type="text" className="mint-max-width mint-text-field mt-2" placeholder={props.placeholder} />
+          <input type="text" className="mint-max-width mint-text-field mt-2" placeholder={props.placeholder} onChange={e => {props.onChange(e.target.value)}}/>
         </form>
       )}
     </div>
   );
 };
 
-export default mintComponent;
+export default MintComponent;

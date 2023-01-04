@@ -14,5 +14,6 @@ export const CHAIN_ADDRESSES = {
         ExchangeContractAddress: "0xf6aac9aB8eC784F153Bc4bD4bA53F6e9f5a34107",
         MockERC20ContractAddress: "0xe339a179Ff1FC414F4B382fC2902950Dc8Ec8FD2",
         MockERC721ContractAddress: "0xc16198C59a4B8AE93bB5d439Ab969Fb81Aa11f47",
+        NFT: "0x793ea30420833920cb106dF605Af201B9Ee75cD0"
     }
 }
