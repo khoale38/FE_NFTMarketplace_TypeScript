@@ -7,14 +7,14 @@ const HomeCollection = (props: Collection) => {
   const navigate = useNavigate();
   return (
     <div
-      className="card shadow"
+      className="card shadow "
       onClick={(e) => {
         navigate(`/collection/${props.address}`);
       }}
     >
       <img
         src={props.nfts.length >= 1 ? props.nfts[0].media[0].gateway : logo}
-        className=" collection-img"
+        className={  props.nfts.length >= 1 ?"collection-img" :"collection-img-fail"}
         alt="..."
       />
       <div className=" card-cbody px-3 py-0 my-2 d-flex flex-row align-items-center">

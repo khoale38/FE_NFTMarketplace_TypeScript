@@ -1,6 +1,13 @@
 .collection-img {
   object-fit: cover;
   max-height: 11.25rem;
+  min-height: 11.25rem;
+
+}
+
+.collection-img-fail{
+  object-fit:contain;
+  min-height: 11.25rem;
 }
 
 .square {
@@ -37,3 +44,6 @@
     font-size: 1.5vw;
   }
 }
+
+
+
