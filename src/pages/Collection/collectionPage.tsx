@@ -60,6 +60,11 @@ const CollectionPage = () => {
   }, [collectionState?.nfts, searchState]);
 
   const getLastestUpdate = useCallback(() => {
+    if(collectionState?.nfts.length==0)
+    {
+      setUpdatedTime("None")
+      return
+    }
     let result = collectionState?.nfts.reduce((a, b) =>
       a.timeLastUpdated > b.timeLastUpdated ? a : b
     ).timeLastUpdated;
