@@ -27,7 +27,7 @@ const CollectionBuyModal = (props: any) => {
   }, [props.contract]);
 
   const handleBuy = async () => {
-    console.log(contractProp.listingData[0]);
+    console.log("contractProp:", contractProp.listingData[0]);
     const web3modal = new Web3Modal();
     const connection = await web3modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
@@ -76,7 +76,7 @@ const CollectionBuyModal = (props: any) => {
       REPLACEMENT_PATTERN.replacementPatternFrom,
   )
   buy.maker = signerAddress;
-  buy.taker = "0x5B9aAEf5292B5D38C30Bb5B0CA65D3960E158b66";
+  buy.taker = contractProp.listingData[0].makerAddress;
   buy.target = contract.address;
   buy.basePrice = contractProp.price;
   buy.paymentToken = CHAIN_ADDRESSES.goerli.MockERC20ContractAddress;

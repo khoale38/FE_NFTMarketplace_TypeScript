@@ -55,13 +55,14 @@ const PersonalSellNFTModal = (props: any) => {
       signer
     ) as MockERC721
 
-    try {
-      let transaction = await contract.approve(CHAIN_ADDRESSES.goerli.ExchangeContractAddress, tokenId);
-      await transaction.wait();
-    } catch(e) {
-      console.log(e);
-      alert(e);
-    }
+    // try {
+    //   let transaction = await contract.approve(CHAIN_ADDRESSES.goerli.ExchangeContractAddress, tokenId);
+    //   await transaction.wait();
+    // } catch(e) {
+    //   console.log(e);
+    //   alert(e);
+    // }
+    console.log("address:", contractProp.address);
 
     const sellCallData = contract.interface.encodeFunctionData('transferFrom', [
       signerAddress,
@@ -73,7 +74,7 @@ const PersonalSellNFTModal = (props: any) => {
       CHAIN_ADDRESSES.goerli.ExchangeContractAddress,
       true,
       signerAddress,
-      contract.address,
+      CHAIN_ADDRESSES.goerli.ProxyRegistryContractAddress,
       sellCallData,
       REPLACEMENT_PATTERN.replacementPatternTo
     )
@@ -81,6 +82,7 @@ const PersonalSellNFTModal = (props: any) => {
     sell.maker = signerAddress;
     sell.taker = constants.AddressZero;
     sell.side = 1;
+    sell.target = contract.address;
     sell.basePrice = basePrice;
     sell.paymentToken = CHAIN_ADDRESSES.goerli.MockERC20ContractAddress;
     sell.listingTime = 0;
@@ -89,8 +91,9 @@ const PersonalSellNFTModal = (props: any) => {
 
     const sellHash = hashOrder(sell);
     const sellSign = await web3.eth.sign(sellHash, signerAddress);
-    console.log(sellSign);
-
+    // console.log("Infor:", sell.maker, sell.taker, sell.feeRecipient, sellCallData, tokenId, sell.target, sell.basePrice, sell.paymentToken, sell.listingTime, sell.expirationTime, sellSign, sell.salt);
+    console.log("tokenid:", tokenId);
+    console.log("sellSign:", sellSign);
     await ListingNFT.listingNFT(sell.maker, sell.taker, sell.feeRecipient, sellCallData, tokenId, sell.target, sell.basePrice, sell.paymentToken, sell.listingTime, sell.expirationTime, sellSign, sell.salt);
     alert("Listing successfully")
   }
