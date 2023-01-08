@@ -64,6 +64,7 @@ const PersonalNFT = (props: OwnedNft | any) => {
         tokenId={props.tokenId}
         open={open}
         handleClose={handleClose}
+       displayImage={props.rawMetadata.image}
       />
     </div>
   );

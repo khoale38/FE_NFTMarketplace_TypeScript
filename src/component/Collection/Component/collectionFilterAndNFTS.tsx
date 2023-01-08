@@ -27,12 +27,14 @@ const CollectionFilterAndNFTS = (props: any) => {
   }, [props]);
 
   function checkSell(item: Nft): boolean {
+  
     let temp: boolean = false;
-    sellingListState?.forEach((e) => {
-      if (e.target != props.collectionId) {
+    sellingListState!.forEach((e) => {
+      if (e.target.toLowerCase != props.collectionId.toLowerCase) {
         temp = false;
         return;
       } else {
+
         sellingListState?.forEach((e) => {
           if (e.tokenId.toString() === item.tokenId) {
             temp = true;
@@ -46,9 +48,9 @@ const CollectionFilterAndNFTS = (props: any) => {
     return temp;
   }
   function getPrice(item: Nft): number {
-    let temp: number = 0;
-    sellingListState?.forEach((e) => {
-      if (e.target != props.collectionId) {
+    let temp: number = -1;
+    sellingListState!.forEach((e) => {
+      if (e.target.toLowerCase != props.collectionId.toLowerCase) {
         return;
       } else {
         sellingListState?.forEach((e) => {
