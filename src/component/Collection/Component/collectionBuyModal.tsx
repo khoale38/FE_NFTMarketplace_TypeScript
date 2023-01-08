@@ -85,7 +85,7 @@ const CollectionBuyModal = (props: any) => {
   buy.feeMethod = 1;
 
   const buyHash = hashOrder(buy);
-  const buySig = await web3.eth.sign(buyHash, signerAddress);
+  const buySig = await web3.eth.personal.sign(buyHash, signerAddress, "");
   const splitBuySig = ethers.utils.splitSignature(buySig);
   const splitSellSig = ethers.utils.splitSignature(contractProp.listingData[0].sellSign);
   let transaction = await
