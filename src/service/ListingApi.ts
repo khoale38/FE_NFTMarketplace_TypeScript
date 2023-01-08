@@ -23,6 +23,10 @@ class ListingNFT {
     getAllListing() {
         return axios.get('marketplace/listing')
     };
+
+    deleteListing(tokenId: number, contractAddress: string) {
+        return axios.post(`/marketplace/delete/${tokenId}/${contractAddress}`);
+    }
 }
 
 export default new ListingNFT();

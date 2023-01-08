@@ -6,11 +6,17 @@ import ETH from "../../../asset/eth.svg";
 import CollectionBuyModal from "../Component/collectionBuyModal";
 import { Nft } from "model/Collection";
 import logo from "../../../asset/logo.svg";
+import LoadingOverlayWrapper from "react-loading-overlay-ts";
 
 const CollectionNFT = (props: Nft | any) => {
+  const [mintState, setMintState] = React.useState<boolean>(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const setMintStateCallBack = (childData: any) => {
+    setMintState(childData);
+  };
 
   return (
     <div className="layer-container">
@@ -50,7 +56,9 @@ const CollectionNFT = (props: Nft | any) => {
               Buy Now
             </div>
           </div>
-          <CollectionBuyModal contract={props} open={open} handleClose={handleClose} />
+          <LoadingOverlayWrapper active={mintState} spinner text="Buying...">
+            <CollectionBuyModal contract={props} open={open} handleClose={handleClose} setMintStateCallBack={setMintStateCallBack}/>
+          </LoadingOverlayWrapper>
         </div>
       ) : (
         <div></div>

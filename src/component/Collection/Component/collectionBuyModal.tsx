@@ -18,6 +18,7 @@ import { REPLACEMENT_PATTERN } from "config/replacement_pattern";
 import exchangeABI from "config/abi/WyvernExchange.json";
 import tokenABI from "config/abi/MockERC20.json";
 import Web3 from "web3";
+import ListingApi from "service/ListingApi";
 
 const CollectionBuyModal = (props: any) => {
   const [contractProp, setContractProp] = React.useState({ contract: { address: ""}, tokenId: -1, price: 0, listingData: [{sellSign: "", makerAddress: "", takerAddress: "", feeRecipient: "", target: "", paymentToken: "", basePrice: 1, listingTime: 0, expirationTime: 0, salt: 0, callData: ""}]});
@@ -27,6 +28,7 @@ const CollectionBuyModal = (props: any) => {
   }, [props.contract]);
 
   const handleBuy = async () => {
+    props.setMintStateCallBack(true);
     console.log("contractProp:", contractProp.listingData[0]);
     const web3modal = new Web3Modal();
     const connection = await web3modal.connect();
@@ -147,6 +149,8 @@ const CollectionBuyModal = (props: any) => {
                     overrides
                 );
             await transaction.wait();
+            await ListingApi.deleteListing(contractProp.tokenId, contract.address);
+            props.setMintStateCallBack(false);
             alert("Buy successfully");
   }
 
