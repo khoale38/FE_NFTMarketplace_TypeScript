@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import Modal from "@mui/material/Modal";
-import popcat from "../../asset/popcat.jpg";
+import logo from "../../asset/logo.svg";
 import close from "../../asset/close1.svg";
 import Box from "@mui/material/Box";
 import "../../styles/pages/Personal/personalNFT.scss";
@@ -116,7 +116,7 @@ const PersonalSellNFTModal = (props: any) => {
             />
             <div className="my-3 row">
               <img
-                src={popcat}
+                src={props.displayImage ?? logo}
                 alt="avatar"
                 className="personal-sell-modal-image me-3 col-lg"
               />
