@@ -19,10 +19,8 @@ class ListingNFT {
             sellSig,
             salt
         });
-
- 
     }
-    getAllListing(){
+    getAllListing() {
         return axios.get('marketplace/listing')
     };
 }

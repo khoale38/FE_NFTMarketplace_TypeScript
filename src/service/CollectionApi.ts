@@ -6,7 +6,7 @@ class GetCollectionInfo {
     return axios.post(`/contract/${address}`);
   }
 
-  getAllCollection(){
+  getAllCollection() {
     return axios.get(`/contract/`);
   }
 }
