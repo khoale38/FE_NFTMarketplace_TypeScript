@@ -12,11 +12,13 @@ const CollectionNFT = (props: Nft | any) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  console.log(props.isSell)
   return (
+    
     <div className="layer-container">
       <div
         className={
-          props.isSell
+          props.price!= -1
             ? "card shadow NFT-card NFT-layer"
             : "card shadow NFT-card"
         }
@@ -35,7 +37,7 @@ const CollectionNFT = (props: Nft | any) => {
               <div className="starting-at-text  ">Price:</div>
               <div className="d-flex align-items-center ">
                 <div className="nft-item-price NFT-price-width pe-2">
-                  {props.price==0 ? "No Sale":props.price}
+                  {props.price== -1 ? "No Sale":props.price}
                 </div>
                 <img src={ETH} className="nft-eth-icon" alt="..." />
               </div>
@@ -43,7 +45,7 @@ const CollectionNFT = (props: Nft | any) => {
           </div>
         </div>
       </div>
-      {props.isSell ? (
+      {props.price!= -1 ? (
         <div>
           <div className="middle-buy-now-container">
             <div className="NFT-buy-now" onClick={handleOpen}>
